@@ -194,6 +194,114 @@ function fetchEngineeringDeptProjects(deptName) {
     })
     .catch(err => console.error("خطأ:", err));
 }
+  </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    @media (max-width: 992px) {
+        /* 1. ضبط شريط التنقل العلوي بالكامل (الـ Navbar) */
+        .navbar, .admin-header, .header, nav, .user-nav-box {
+            flex-direction: column !important;
+            gap: 12px !important;
+            text-align: center !important;
+            padding: 15px !important;
+            height: auto !important;
+            width: 100% !important;
+            display: flex !important;
+        }
+        
+        .nav-brand, .logo-section {
+            justify-content: center !important;
+            margin-bottom: 5px !important;
+            display: flex !important;
+        }
+
+        .user-info {
+            flex-direction: column !important;
+            gap: 10px !important;
+            width: 100% !important;
+            justify-content: center !important;
+            display: flex !important;
+        }
+
+        /* 2. تحويل جميع الجريدات وشبكات الكروت لعمود واحد يفرش الشاشة */
+        .grid-container, .projects-grid, .tech-grid, #projectsGrid, .stats-grid, .main-grid, .faculty-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+            padding: 10px !important;
+            width: 100% !important;
+            display: grid !important;
+        }
+
+        /* 3. إلغاء الهوامش الجانبية الثابتة لصفحة الأدمن والمحتوى */
+        .sidebar {
+            width: 100% !important;
+            height: auto !important;
+            position: relative !important;
+            box-shadow: none !important;
+            padding: 15px !important;
+        }
+        
+        .main-content {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+            padding: 15px !important;
+            width: 100% !important;
+        }
+
+        /* 4. ضبط العناوين والواجهات الكبيرة للـ Hero Sections */
+        .hero-section, .dept-header, .welcome-text {
+            height: auto !important;
+            min-height: 200px !important;
+            padding: 30px 15px !important;
+            text-align: center !important;
+        }
+        
+        .hero-section h1, .dept-header h1, .welcome-text h1 {
+            font-size: 22px !important;
+            line-height: 1.4 !important;
+        }
+
+        /* 5. إجبار الكروت على الاحتواء الكامل داخل شاشة الفون */
+        .project-card, .tech-card, .card, .stat-card {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 0 10px 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        /* 6. حل مشكلة الجداول والـ Charts وتفعيل السكرول الجانبي السحري للجدول */
+        div:has(table), .table-container, .table-responsive, .data-table-container {
+            width: 100% !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+        
+        table {
+            min-width: 550px !important;
+        }
+        
+        canvas, .chart-container {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        /* 7. ضبط الأزرار لتكون عريضة وسهلة اللمس بالإصبع */
+        .btn, .btn-explore, .btn-action-view, .logout-btn, .menu-items a, input, select, textarea {
+            width: 100% !important;
+            text-align: center !important;
+            display: block !important;
+            box-sizing: border-box !important;
+        }
+        
+        .filter-tabs-container, .menu-items {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 8px !important;
+        }
+    }
+</style>
 </script>
 </body>
 </html>
