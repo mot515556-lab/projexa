@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريع كلية العلوم | PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep-dark: #020617; 
+            --bg-gradient: linear-gradient(135deg, #020617 0%, #041a14 50%, #0f172a 100%);
+            --card-glass: rgba(15, 23, 42, 0.75);
+            --industrial-border: rgba(255, 255, 255, 0.06);
+            --neon-emerald: #10b981;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--bg-deep-dark); background-image: var(--bg-gradient); background-attachment: fixed; color: var(--text-light); padding-top: 80px; overflow-x: hidden; }
+
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(16, 185, 129, 0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.015) 1px, transparent 1px);
+            background-size: 45px 45px; z-index: -1;
+        }
+
+        .navbar { 
+            position: fixed; top: 0; width: 100%; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid var(--industrial-border);
+        }
+        .navbar a.logo-link { text-decoration: none; font-size: 26px; font-weight: 900; color: var(--text-light); }
+        .navbar a.logo-link span { color: var(--neon-emerald); text-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+        
+        .hero-section { width: 100%; height: 380px; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 60%), rgba(2, 6, 23, 0.6); border-bottom: 2px solid var(--industrial-border); }
+        .hero-content h1 { font-size: 3.2rem; font-weight: 900; margin-bottom: 15px; background: linear-gradient(135deg, #fff 30%, var(--neon-emerald) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-content p { font-size: 1.2rem; color: var(--text-muted); }
+
+        .grid-container { max-width: 1250px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 35px; }
+        .project-card-link { text-decoration: none; color: inherit; display: block; }
+        
+        .project-card {
+            background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; border: 2px solid var(--industrial-border);
+            padding: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%; justify-content: space-between;
+        }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: var(--neon-emerald); transition: 0.4s ease; box-shadow: 0 0 15px var(--neon-emerald); }
+
+        .card-icon { width: 60px; height: 60px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--neon-emerald); margin-bottom: 25px; transition: 0.4s; }
+        .project-card h3 { font-size: 1.4rem; font-weight: 700; color: var(--text-light); margin-bottom: 14px; line-height: 1.5; transition: 0.3s; }
+        .project-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; flex-grow: 1; }
+        
+        .card-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; font-size: 13px; color: var(--text-muted); }
+        .btn-view { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--neon-emerald) !important; }
+
+        .project-card-link:hover .project-card { transform: translateY(-12px); border-color: var(--neon-emerald); box-shadow: 0 25px 50px rgba(16, 185, 129, 0.25); }
+        .project-card-link:hover .project-card::before { width: 100%; }
+        .project-card-link:hover .card-icon { background: var(--neon-emerald); color: white; box-shadow: 0 0 15px var(--neon-emerald); }
+        .project-card-link:hover h3 { color: var(--neon-emerald); }
+
+        .user-nav-box { display: flex; align-items: center; gap: 15px; font-size: 14px; }
+        .user-name-txt { font-weight: 700; color: var(--neon-emerald); }
+        .logout-btn-nav { background: #ef4444; color: white; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">PRO<span>JEXA</span></a>
+        <div class="nav-left" id="authArea">
+            </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>مشاريع كلية العلوم</h1>
+            <p>استعراض الأبحاث البيئية المتقدمة، ابتكارات البلاستيك الحيوي المستدام، ودراسات معالجة المخلفات الصناعية.</p>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <a href="projectview.html?id=waste" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-fish"></i></div>
+                    <h3>أثر مياه صرف الألبان على سمك البلطي في منطقة جمصة الصناعية</h3>
+                    <p>دراسة بيئية تحليلية لتقييم المخاطر السمية الناتجة عن الصرف الصناعي غير المعالج وتأثيره الحاد على الثروة السمكية.</p>
+                </div>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar-alt"></i> قسم علوم البيئة</span>
+                    <div class="btn-view">التفاصيل <i class="fas fa-long-arrow-alt-left"></i></div>
+                </div>
+            </div>
+        </a>
+
+        <a href="projectview.html?id=bio_treatment" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>المعالجة البيولوجية للمياه باستخدام نبات Cenchrus ciliaris</h3>
+                    <p>استخدام تقنيات المعالجة النباتية الحيوية (Phytoremediation) لامتصاص وتنقية مياه الصرف الصحي بتكلفة منخفضة.</p>
+                </div>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar-alt"></i> قسم علوم البيئة</span>
+                    <div class="btn-view">التفاصيل <i class="fas fa-long-arrow-alt-left"></i></div>
+                </div>
+            </div>
+        </a>
+
+        <a href="projectview.html?id=plastic" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>البلاستيك الحيوي من قشور الموز</h3>
+                    <p>ابتكار بوليمرات حيوية مستدامة وقابلة للتحلل الطبيعي بالكامل باستخدام المخلفات الزراعية كبديل آمن للبلاستيك البترولي.</p>
+                </div>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar-alt"></i> كلية العلوم</span>
+                    <div class="btn-view">التفاصيل <i class="fas fa-long-arrow-alt-left"></i></div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+<script>
+function checkLoginStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const role = localStorage.getItem('role');
+    const authArea = document.getElementById('authArea');
+
+    if (isLoggedIn === 'true' && userName && authArea) {
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span class="user-name-txt">مرحباً، ${userName}</span>
+                ${role === 'admin' ? '<a href="admin.html" style="background:var(--neon-emerald); color:white; padding:5px; border-radius:5px; text-decoration:none; font-size:12px;">لوحة التحكم</a>' : ''}
+                <button onclick="logoutNow()" class="logout-btn-nav">خروج</button>
+            </div>
+        `;
+    }
+}
+function logoutNow() {
+    if (confirm("هل تريد تسجيل الخروج؟")) { localStorage.clear(); window.location.reload(); }
+}
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+    fetchScienceProjects();
+});
+
+function fetchScienceProjects() {
+    fetch('api.php?action=get_projects&faculty=' + encodeURIComponent('كلية العلوم'))
+    .then(response => response.json())
+    .then(projects => {
+        const gridContainer = document.querySelector('.grid-container');
+        gridContainer.innerHTML = '';
+
+        if(projects.length === 0) {
+            gridContainer.innerHTML = '<p style="color:#64748b; text-align:center; grid-column:1/-1;">لا يوجد مشاريع مرفوعة حالياً لكلية العلوم.</p>';
+            return;
+        }
+
+        projects.forEach(p => {
+            gridContainer.innerHTML += `
+                <a href="projectview.html?id=${p.project_slug}" class="card-link" style="text-decoration:none; color:inherit;">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="card-badge" style="background:#10b981; color:white;"><i class="fas fa-flask"></i> دفعة ${p.graduation_year}</span>
+                            <h3 class="card-title">${p.title}</h3>
+                            <p class="card-text">${p.description.substring(0, 120)}...</p>
+                        </div>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> ${p.team_members}</span>
+                            <div class="btn-view" style="color: #10b981;">التفاصيل <i class="fas fa-long-arrow-alt-left"></i></div>
+                        </div>
+                    </div>
+                </a>
+            `;
+        });
+    });
+}
+</script>
+</body>
+</html>

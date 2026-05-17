@@ -1,0 +1,1085 @@
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* شريط التنقل */
+/* تنسيق شريط التنقل الجديد */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    direction: rtl; /* للتأكد من الترتيب من اليمين لليسار */
+}
+
+/* تنسيق الشعارات */
+.header-logo {
+    height: 60px; /* يمكنك تعديل الحجم حسب الرغبة */
+    width: auto;
+    margin-left: 15px;
+}
+
+.nav-right, .nav-left {
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق لوجو المنصة Projexa */
+.platform-brand {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #eee; /* فاصل بسيط */
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.platform-logo {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 20px;
+    color: #1a73e8;
+    margin-right: 10px;
+}
+
+/* روابط التنقل */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1a73e8;
+}
+
+/* لجعل التصميم متوافق مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .header-logo {
+        height: 40px;
+    }
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a73e8;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1a73e8;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: #1a73e8;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.btn-signup {
+    text-decoration: none;
+    background: #1a73e8;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-signup:hover {
+    background: #1557b0;
+}
+
+/* قسم الترحيب Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(45deg, #1a73e8, #00d2ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* صندوق البحث */
+.search-box {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 5px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box button {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #333;
+}
+/* تنسيق قسم التحكم (الأزرار) */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* مسافة قبل لوجو القسم */
+    gap: 15px;
+}
+
+/* زر تسجيل الدخول */
+.btn-login {
+    background-color: #1a73e8;
+    color: white !important;
+    padding: 7px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* زر فريق العمل (تصميم مختلف لتمييزه) */
+.btn-team {
+    color: #1a73e8;
+    border: 1px solid #1a73e8;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-team:hover {
+    background: #1a73e8;
+    color: white;
+}
+
+/* رابط الإدارة */
+.admin-link {
+    color: #d93025; /* أحمر للتنبيه */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* لوجو المنصة */
+.platform-brand {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #eee;
+    padding-right: 15px;
+}
+
+.platform-logo {
+    height: 45px;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a73e8;
+    margin-right: 8px;
+}
+
+/* التجاوب مع الموبايل */
+@media (max-width: 992px) {
+    .navbar { flex-direction: column; gap: 15px; }
+    .nav-controls { margin-left: 0; }
+}
+/* تنسيق قسم الترحيب */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* خلفية تعبيرية */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 115, 232, 0.9), rgba(0, 0, 0, 0.7));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* صندوق البحث */
+.search-container {
+    background: white;
+    padding: 8px;
+    border-radius: 50px;
+    display: flex;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin-bottom: 50px;
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 50px;
+}
+
+.search-container button {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.search-container button:hover {
+    background: #1557b0;
+    transform: scale(1.05);
+}
+
+/* شريط الإحصائيات */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700; /* لون ذهبي للتميز */
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* التجاوب مع الموبايل */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2rem; }
+    .stats-bar { gap: 20px; }
+    .search-container { flex-direction: column; border-radius: 15px; }
+    .search-container button { margin-top: 10px; }
+}
+/* تنسيق قسم الكليات */
+.colleges-section {
+    padding: 80px 5%;
+    background-color: #f0f4f8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #102a43;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #627d98;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+/* شبكة الكروت */
+.colleges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* تصميم الكارت */
+.college-card {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.college-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(26, 115, 232, 0.15);
+    border-bottom: 4px solid #1a73e8;
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+.college-card h3 {
+    font-size: 1.5rem;
+    color: #102a43;
+    margin-bottom: 15px;
+}
+
+.college-card p {
+    color: #486581;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    height: 50px; /* لتوحيد حجم النصوص */
+}
+
+.card-stats {
+    display: flex;
+    justify-content: center;
+    color: #1a73e8;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.card-btn {
+    text-decoration: none;
+    background: #f0f4f8;
+    color: #1a73e8;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.college-card:hover .card-btn {
+    background: #1a73e8;
+    color: white;
+}
+/* تنسيق قسم أحدث المشاريع */
+.recent-projects {
+    padding: 80px 5%;
+    background-color: #ffffff;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.view-all {
+    text-decoration: none;
+    color: #1a73e8;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.view-all:hover {
+    gap: 15px;
+}
+
+/* شبكة المشاريع */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* تصميم كارت المشروع */
+.project-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.project-image {
+    position: relative;
+    height: 200px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #1a73e8;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.project-info {
+    padding: 20px;
+    text-align: right;
+}
+
+.project-info h3 {
+    font-size: 1.2rem;
+    color: #102a43;
+    margin-bottom: 10px;
+}
+
+.student-name {
+    color: #627d98;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.rating {
+    color: #f1c40f;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.date {
+    color: #999;
+    font-size: 0.8rem;
+}
+.main-footer {
+    background-color: #0f172a;
+    color: white;
+    padding: 60px 5% 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h4 {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    color: #1a73e8;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img { height: 50px; }
+
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 12px; }
+.footer-section ul li a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
+.footer-section ul li a:hover { color: #1a73e8; padding-right: 5px; }
+
+.social-icons { display: flex; gap: 15px; margin-top: 20px; }
+.social-icons a { color: white; font-size: 1.5rem; transition: 0.3s; }
+.social-icons a:hover { color: #1a73e8; transform: translateY(-3px); }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+.btn-secondary {
+    background: transparent;
+    color: #1e40af;
+    border: 2px solid #1e40af;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.4s;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: #1e40af;
+    color: white;
+    transform: scale(1.05); /* حركة تكبير بسيطة عند اللمس */
+}
+.social-icon {
+    color: #475569; /* لون رمادي هادي في البداية */
+    font-size: 24px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #1877f2; /* لون فيسبوك الأزرق الحقيقي لما تلمسه */
+    transform: translateY(-3px); /* حركة خفيفة لفوق */
+}
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.social-icon {
+    font-size: 28px;
+    color: #64748b; /* اللون العادي رمادي */
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+/* تأثير الفيسبوك */
+.social-icon.fb:hover {
+    color: #1877f2;
+    transform: scale(1.2);
+}
+
+/* تأثير الإنستجرام (تدرج ألوان شيك) */
+.social-icon.insta:hover {
+    color: #e4405f;
+    transform: scale(1.2);
+}
+
+/* تأثير التيك توك */
+.social-icon.tiktok:hover {
+    color: #010101; /* لون التيك توك الأسود أو ممكن تخليه سماوي #69C9D0 */
+    transform: scale(1.2);
+    text-shadow: 2px 2px #ff0050, -2px -2px #00f2ea; /* تأثير الـ Glitch بتاع تيك توك */
+}
+.footer-distributed {
+    background-color: #0f172a; /* لون غامق شيك */
+    color: #ffffff;
+    padding: 50px 8% 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* عشان الموبايل */
+    gap: 40px;
+}
+
+/* توزيع المساحات */
+.footer-left { flex: 2; }
+.footer-center { flex: 1; }
+.footer-right { flex: 1; }
+
+.footer-left .logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
+
+.footer-description {
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 350px;
+}
+
+.footer-distributed h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #38bdf8;
+    padding-right: 5px;
+}
+
+/* أيقونات السوشيال ميديا جنب بعض */
+.footer-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icons a {
+    width: 40px;
+    height: 40px;
+    background: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-icons a.fb:hover { background: #1877f2; }
+.footer-icons a.insta:hover { background: #e4405f; }
+.footer-icons a.tiktok:hover { background: #010101; box-shadow: 1px 1px 0px #ff0050, -1px -1px 0px #00f2ea; }
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #1e293b;
+    margin-top: 40px;
+    padding-top: 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-left, .footer-description {
+        margin: 0 auto;
+    }
+    .footer-icons {
+        justify-content: center;
+    }
+}
+/* تصميم الزرار العائم */
+#chat-circle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1e40af;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+/* صندوق المحادثة */
+.chat-box {
+    display: none;
+    background: #efefef;
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 350px;
+    max-width: 85vw;
+    max-height: 500px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 35px 9px rgba(0,0,0,0.1);
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.chat-box-header {
+    background: #1e40af;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.chat-box-body {
+    height: 350px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.chat-input {
+    background: white;
+    padding: 10px;
+}
+
+.chat-input input {
+    width: 85%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-family: 'Cairo';
+}
+
+.chat-submit {
+    background: transparent;
+    border: none;
+    color: #1e40af;
+    cursor: pointer;
+}
+
+/* ستايل الرسائل */
+.cm-msg-text {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    font-size: 14px;
+}
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: white;
+    z-index: 9999;
+    font-weight: bold;
+    animation: fadeInDown 0.5s;
+}
+.success { background-color: #22c55e; }
+.error { background-color: #ef4444; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate(-50%, -20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+.btn-details {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1e40af;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn-details:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+}
+/* حاوية البحث الكبيرة */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: 20px auto;
+    z-index: 1000;
+}
+
+/* صندوق البحث الرئيسي */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 15px;
+    border-radius: 50px; /* شكل بيضاوي مودرن */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #10b981; /* لون العلوم الأخضر أو الأزرق حسب القسم */
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+    background: #fff;
+}
+
+/* الأيقونة والإنبوت */
+.search-icon {
+    color: #94a3b8;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+#searchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* زرار البحث */
+.search-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+/* تصميم القائمة المنسدلة للنتائج */
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    display: none;
+    overflow: hidden;
+    animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #334155;
+    transition: 0.2s;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.search-item:last-child { border-bottom: none; }
+
+.search-item:hover {
+    background: #f0fdf4;
+    padding-right: 35px; /* حركة بسيطة عند الهوفر */
+}
+
+.search-item-info { flex: 1; }
+
+.search-item-title {
+    display: block;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #0f172a;
+    margin-bottom: 3px;
+}
+
+.search-item-dept {
+    font-size: 0.8rem;
+    color: #10b981;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.search-item i {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+/* تنسيق زرار الخروج */
+.btn-logout {
+    background: rgba(239, 68, 68, 0.1); /* أحمر شفاف خفيف */
+    color: #ef4444; /* لون النص أحمر */
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* تأثير عند مرور الماوس */
+.btn-logout:hover {
+    background: #ef4444; /* يتحول لأحمر كامل */
+    color: white;
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+    transform: translateY(-2px);
+}
+
+/* أيقونة الخروج */
+.btn-logout i {
+    font-size: 16px;
+}
+/* تنسيقات إضافية لضمان استقرار الناف بار */
+.user-welcome {
+    font-size: 14px;
+    font-weight: bold;
+    color: #64748b;
+    margin-left: 10px;
+}
+
+.btn-logout-main {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Cairo';
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-logout-main:hover { background: #dc2626; }
+
+.btn-admin-nav {
+    background: #1e40af;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+.user-nav-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.user-name-txt {
+    font-weight: bold;
+    color: #1e40af;
+    font-size: 14px;
+}
+.logout-btn-nav {
+    background: #ef4444 !important;
+    color: white !important;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاضنة الأعمال وعرض الاستثمار | PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* نظام الألوان السينمائي الفاخر والمطور - Ultra Premium Dark */
+        :root { 
+            --bg-dark: #090d16; 
+            --bg-gradient: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #1e1b4b 100%);
+            --card-dark: rgba(30, 41, 59, 0.45); 
+            --card-border: rgba(255, 255, 255, 0.06);
+            --mint: #deff9a; 
+            --mint-hover: #bbf74c;
+            --mint-glow: rgba(222, 255, 154, 0.25);
+            --text-light: #f8fafc; 
+            --text-muted: #94a3b8;
+            --danger: #ff4a4a; 
+            --danger-glow: rgba(255, 74, 74, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        
+        body { 
+            background: var(--bg-dark); 
+            background-image: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-light); 
+            padding-top: 110px; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(222, 255, 154, 0.1); }
+            50% { box-shadow: 0 0 25px rgba(222, 255, 154, 0.25); }
+            100% { box-shadow: 0 0 15px rgba(222, 255, 154, 0.1); }
+        }
+
+        /* البار العلوي */
+        .navbar { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(9, 13, 22, 0.7); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            padding: 18px 8%; 
+            box-shadow: 0 4px 40px rgba(0,0,0,0.4); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
+        .logo { text-decoration: none; font-size: 26px; font-weight: 900; color: var(--text-light); letter-spacing: 1px; }
+        .logo span { color: var(--mint); text-shadow: 0 0 15px var(--mint-glow); }
+        .btn-back { 
+            text-decoration: none; 
+            color: var(--mint); 
+            font-weight: 700; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            cursor: pointer;
+            padding: 8px 18px;
+            background: rgba(222, 255, 154, 0.05);
+            border: 1px solid rgba(222, 255, 154, 0.15);
+            border-radius: 50px;
+        }
+        .btn-back:hover { color: var(--bg-dark); background: var(--mint); transform: translateX(5px); box-shadow: 0 0 15px var(--mint-glow); }
+
+        .container { max-width: 1100px; margin: 20px auto 60px auto; padding: 0 24px; animation: fadeInUp 0.7s ease forwards; }
+        
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header h1 { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; }
+        .section-header h1 span { color: var(--mint); text-shadow: 0 0 20px var(--mint-glow); }
+        .section-header p { color: var(--text-muted); margin-top: 12px; font-size: 1.1rem; }
+
+        /* صندوق البحث النيون */
+        .search-wrapper { max-width: 550px; margin: 0 auto 45px auto; position: relative; }
+        .search-input { 
+            width: 100%; 
+            padding: 16px 24px; 
+            padding-right: 55px; 
+            background: rgba(30, 41, 59, 0.6); 
+            border: 1px solid var(--card-border); 
+            border-radius: 18px; 
+            color: white; 
+            font-size: 1rem; 
+            outline: none; 
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease; 
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .search-input:focus { 
+            border-color: var(--mint); 
+            box-shadow: 0 0 25px rgba(222, 255, 154, 0.15), inset 0 2px 4px rgba(0,0,0,0.2);
+            background: rgba(30, 41, 59, 0.8);
+        }
+        .search-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem; transition: 0.3s; }
+        .search-input:focus + .search-icon { color: var(--mint); text-shadow: 0 0 10px var(--mint-glow); }
+
+        /* شبكة كروت المشاريع (Grid) */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 20px; }
+        .project-grid-card { 
+            background: var(--card-dark); 
+            padding: 30px; 
+            border-radius: 24px; 
+            border: 1px solid var(--card-border); 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .project-grid-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            right: -100%; 
+            width: 100%; 
+            height: 4px; 
+            background: linear-gradient(90deg, transparent, var(--mint), transparent); 
+            transition: 0.6s;
+        }
+        .project-grid-card:hover { 
+            transform: translateY(-8px) scale(1.02); 
+            border-color: rgba(222, 255, 154, 0.3); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(222, 255, 154, 0.05); 
+        }
+        .project-grid-card:hover::before { right: 100%; }
+        
+        .grid-badge { background: rgba(222, 255, 154, 0.08); color: var(--mint); padding: 5px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; display: inline-block; margin-bottom: 20px; width: fit-content; border: 1px solid rgba(222, 255, 154, 0.15); }
+        .grid-title { font-size: 1.4rem; font-weight: 900; margin-bottom: 12px; line-height: 1.4; color: var(--text-light); transition: 0.3s; }
+        .project-grid-card:hover .grid-title { color: var(--mint); }
+        .grid-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 25px; }
+        .grid-footer { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--mint); font-weight: 700; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        .grid-footer i { transition: 0.3s; }
+        .project-grid-card:hover .grid-footer i { transform: translateX(-5px); }
+
+        /* صفحة تفاصيل المشروع */
+        .project-card { 
+            background: rgba(30, 41, 59, 0.35); 
+            padding: 50px; 
+            border-radius: 32px; 
+            box-shadow: 0 30px 70px rgba(0,0,0,0.5); 
+            border: 1px solid var(--card-border); 
+            position: relative; 
+            overflow: hidden; 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .project-card::before { content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 6px; background: linear-gradient(90deg, var(--mint-hover), var(--mint)); box-shadow: 0 0 20px var(--mint-glow); }
+        
+        .project-subtitle { color: var(--mint); font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; text-shadow: 0 0 10px rgba(222,255,154,0.15); }
+        .project-title { font-size: 2.6rem; font-weight: 900; line-height: 1.4; color: var(--text-light); margin-bottom: 35px; letter-spacing: -0.5px; }
+
+        .video-box-card { margin: 40px 0; }
+        .video-box-card h3 { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .video-wrapper-link { 
+            display: block; 
+            position: relative; 
+            width: 100%; 
+            height: 460px; 
+            border-radius: 24px; 
+            overflow: hidden; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); 
+        }
+        .video-wrapper-link:hover { transform: translateY(-3px) scale(1.005); border-color: var(--mint); box-shadow: 0 30px 60px rgba(222, 255, 154, 0.12); }
+        
+        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85px; height: 85px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 0 40px rgba(239, 68, 68, 0.7); transition: all 0.3s ease; }
+        .video-wrapper-link:hover .play-overlay { background: #ff2b2b; transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 50px rgba(255, 43, 43, 0.9); }
+        .video-caption-overlay { position: absolute; bottom: 0; right: 0; width: 100%; padding: 35px 30px; background: linear-gradient(transparent, rgba(9,13,22,0.98)); }
+
+        .info-block { background: rgba(9, 13, 22, 0.4); padding: 30px; border-radius: 22px; margin-top: 30px; border-right: 5px solid var(--mint); border-left: 1px solid rgba(255,255,255,0.02); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .info-block h3 { font-size: 1.3rem; color: var(--text-light); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 700; }
+        .info-block h3 i { color: var(--mint); text-shadow: 0 0 10px var(--mint-glow); }
+        .info-block p { color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; }
+
+        .grid-problem-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .box-tile { padding: 30px; border-radius: 22px; backdrop-filter: blur(10px); }
+        .box-tile.tile-prob { background: rgba(255, 74, 74, 0.04); border: 1px solid rgba(255, 74, 74, 0.1); border-right: 5px solid var(--danger); }
+        .box-tile.tile-sol { background: rgba(222, 255, 154, 0.04); border: 1px solid rgba(222, 255, 154, 0.1); border-right: 5px solid var(--mint); }
+        .box-tile h3 { font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .box-tile p { font-size: 1rem; line-height: 1.7; color: #e2e8f0; }
+
+        .team-tags { list-style: none; margin-top: 15px; display: flex; flex-wrap: wrap; gap: 12px; }
+        .team-tags li { background: rgba(255,255,255,0.04); padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #e2e8f0; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; }
+        
+        .btn-pdf-download { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            width: 100%; 
+            background: linear-gradient(90deg, var(--mint-hover), var(--mint)); 
+            color: var(--bg-dark); 
+            padding: 18px; 
+            border-radius: 18px; 
+            text-decoration: none; 
+            margin-top: 45px; 
+            font-weight: 900; 
+            font-size: 1.15rem; 
+            transition: all 0.4s ease; 
+            border: none; 
+            cursor: pointer; 
+            box-shadow: 0 10px 30px rgba(222, 255, 154, 0.2); 
+            animation: pulseGlow 3s infinite;
+        }
+        .btn-pdf-download:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 15px 40px rgba(222, 255, 154, 0.4); 
+            background: var(--mint-hover);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">PRO<span>JEXA</span></a>
+        <div class="nav-left">
+            <a id="backNavBtn" onclick="goBackToList()" class="btn-back"><i class="fas fa-arrow-right"></i> العودة للقائمة</a>
+        </div>
+    </nav>
+
+    <div class="container" id="mainDynamicContainer"></div>
+
+    <script>
+        const projectsDatabase = {
+            "theqa": {
+                title: "منصة ثقة (Theqa) لحلول العقود الذكية وتأمين المعاملات الرقمية",
+                subtitle: "تكنولوجيا المعاملات الرقمية والقانونية (Shark Tank)",
+                gridBadge: "تكنولوجيا برمجية وقانونية",
+                gridDesc: "منصة رقمية لتأمين المعاملات المالية والاتفاقيات بين المستقلين والشركات عبر نظام حساب الضمان الذكي.",
+                idea: "منصة رقمية وسيطة تتيح للأفراد والشركات إنشاء وتوثيق العقود إلكترونياً، مع توفير نظام دفع وضمان مالي يحمي حقوق الأطراف المعنية حتى إتمام تسليم الأعمال والخدمات صَح.",
+                summary: "تطبيق ويب متقدم يعمل كوسيط مالي وقانوني آمن؛ حيث يقوم المشتري بإيداع القيمة المالية للمشروع داخل حساب 'ثقة' الوسيط، ولا يتم تحرير الأموال لصالح مقدم الخدمة إلا بعد تأكيد تنفيذ الشروط.",
+                problem: "انتشار حالات النصب والمماطلة في سداد المستحقات المالية بين المستقلين (Freelancers) والشركات الناشئة، وغياب آلية قانونية وتكنولوجية سريعة لحماية المعاملات.",
+                solution: "أتمتة منظومة 'حساب الضمان' (Escrow Account) رقمياً بشكل مبسط يناسب السوق العربي، مما يضمن لكل طرف كامل حقوقه المالية والعملية تحت إشراف المنصة المباشر.",
+                goal: "تعزيز نمو سوق العمل الحر والتجارة الإلكترونية، وبناء بيئة تجارية رقمية موثوقة تماماً خالية من مخاطر النصب والتلاعب وضياع المستحقات المالية.",
+                team: ["مؤسسي منصة ثقة الرقمية", "فريق التطوير لـ Theqa"],
+                video_id: "WxKKflnNxCE",
+                video_url: "https://youtu.be/WxKKflnNxCE"
+            },
+            "palmpix": {
+                title: "منصة Palm Pix لإنتاج المحتوى الرقمي المبتكر والتصوير السينمائي",
+                subtitle: "صناعة المحتوى التكنولوجي والدعاية (Shark Tank)",
+                gridBadge: "صناعة المحتوى والدعاية",
+                gridDesc: "منصة متكاملة لرقمنة قطاع التصوير وإنتاج الإعلانات التجارية بجودة سينمائية وبتكلفة اقتصادية تناسب البراندات الناشئة.",
+                idea: "منصة تكنولوجية متكاملة لإنتاج وتطوير المحتوى المرئي، وتقديم خدمات التصوير السينمائي والدعاية الرقمية باستخدام أحدث تقنيات الإضاءة والكاميرات لدعم الشركات والبراندات الناشئة.",
+                summary: "تطبيق ويب وخدمة لوجستية تتيح للشركات وصناع المحتوى حجز جلسات تصوير احترافية، وإنتاج إعلانات تجارية بهوية بصرية قوية، مع توفير حلول مونتاج متقدمة بآلية حجز ذكية أونلاين.",
+                problem: "ارتفاع التكاليف الجنونية لإنتاج الإعلانات التجارية بجودة سينمائية، وصعوبة تنسيق وربط صناع المحتوى والشركات الناشئة بفرق التصوير والمونتاج المحترفة.",
+                solution: "أتمتة ورقمنة عملية إنتاج المحتوى بالكامل عبر منصة مرنة توفر باقات إنتاجية بجودة سينمائية هائلة وتكلفة اقتصادية تناسب الشركات الصغيرة والمتوسطة.",
+                goal: "تمكين الهويات التجارية والشركات الناشئة من المنافسة بإنتاج بصري عالمي، وضخ دماء جديدة ومبتكرة في سوق الدعاية الرقمية وصناعة الأفلام والميديا.",
+                team: ["رائد الأعمال أحمد الطاهر", "فريق عمل Palm Pix الإبداعي"],
+                video_id: "s1ibBjbbv9M",
+                video_url: "https://youtu.be/s1ibBjbbv9M"
+            },
+            "ugc_marketing": {
+                title: "منصة BuzzBees لخدمات الـ UGC وتطوير آليات التسويق الرقمي",
+                subtitle: "صناعة التسويق والمحتوى الرقمي المبتكر (Shark Tank)",
+                gridBadge: "منصات التسويق الحديث (UGC)",
+                gridDesc: "منصة متطورة لتغيير سوق الـ Marketing بربط الشركات بصناع المحتوى لإنتاج فيديوهات UGC حقيقية تحقق مبيعات عالية.",
+                idea: "منصة رقمية متخصصة في الـ UGC (المحتوى المُنشأ بواسطة المستخدمين الفعليين)، تتيح لأكثر من 1500 صانع محتوى تقديم فيديوهات تسويقية طبيعية وموثوقة للمنتجات والخدمات.",
+                summary: "تطبيق متكامل يُمكّن العلامات التجارية من طلب محتوى مرئي حقيقي من صناع محتوى عاديين ومحترفين، مما يسهم في رفع الثقة وبناء هويات تسويقية تفاعلية تزيد من معدل التحويل والمبيعات بشكل جنوني.",
+                problem: "المستهلك التقليدي لم يعد يثق بالإعلانات التجارية المصنوعة والمكلفة بشكل مبالغ فيه، ويبحث دائماً عن مراجعات وتجارب حقيقية من أشخاص يشبهونه قبل اتخاذ قرار الشراء.",
+                solution: "توفير شبكة ربط برمجية ولوجستية ذكية تضمن للبراندات الحصول على محتوى تسويقي موثوق ومبني على الـ UGC بتكلفة منافسة وسرعة تنفيذ غير مسبوقة.",
+                goal: "تغيير مفهوم الماركتينج التقليدي في مصر والعالم العربي، وتمكين آلاف الشباب الموهوبين من تحويل صناعة الفيديوهات إلى مصدر دخل مستدام.",
+                team: ["صناع ومؤسسي منصة BuzzBees", "فريق خبراء التسويق الرقمي"],
+                video_id: "fTdYllpKfe8",
+                video_url: "https://youtu.be/fTdYllpKfe8"
+            }
+        };
+
+        function renderPage() {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('project');
+            const mainContainer = document.getElementById('mainDynamicContainer');
+            const backBtn = document.getElementById('backNavBtn');
+
+            if (projectId && projectsDatabase[projectId]) {
+                backBtn.style.display = "flex";
+                const data = projectsDatabase[projectId];
+                mainContainer.innerHTML = `
+                    <article class="project-card" id="printableArea">
+                        <header>
+                            <p class="project-subtitle"><i class="fas fa-fire-alt"></i> حاضنة أعمال PROJEXA — ${data.subtitle}</p>
+                            <h1 class="project-title">${data.title}</h1>
+                        </header>
+                        
+                        <div class="video-box-card" id="videoCard">
+                            <h3><i class="fab fa-youtube" style="color:var(--danger); text-shadow:0 0 10px rgba(255,74,74,0.3)"></i> العرض المرئي والمناقشة الاستثمارية لايف</h3>
+                            <a href="${data.video_url}" target="_blank" class="video-wrapper-link" style="background: linear-gradient(rgba(9,13,22,0.3), rgba(9,13,22,0.85)), url('https://img.youtube.com/vi/${data.video_id}/maxresdefault.jpg') center/cover;">
+                                <div class="play-overlay"><i class="fas fa-play"></i></div>
+                                <div class="video-caption-overlay">
+                                    <p style="font-size: 13px; color: var(--mint); font-weight: bold; margin-bottom: 5px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-external-link-alt"></i> جاهز للعرض الفوري (اضغط للتشغيل السينمائي)</p>
+                                    <h4 style="font-size: 19px; font-weight: 700; color: white;">مشاهدة فكرة وعرض المشروع أمام المستثمرين في Shark Tank مصر</h4>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-lightbulb"></i> فكرة المنظومة الريادية</h3>
+                            <p>${data.idea}</p>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-chart-bar"></i> دراسة الجدوى والملخص التنفيذي</h3>
+                            <p>${data.summary}</p>
+                        </div>
+                        
+                        <div class="grid-problem-solution">
+                            <div class="box-tile tile-prob">
+                                <h3 style="color:var(--danger)"><i class="fas fa-exclamation-circle"></i> فجوة السوق ومحور الأزمة (المشكلة)</h3>
+                                <p>${data.problem}</p>
+                            </div>
+                            <div class="box-tile tile-sol">
+                                <h3 style="color:var(--mint)"><i class="fas fa-star"></i> الابتكار الهندسي المطور (الحل)</h3>
+                                <p>${data.solution}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-bullseye"></i> الأهداف الاقتصادية والاستراتيجية</h3>
+                            <p>${data.goal}</p>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-user-shield"></i> رواد الأعمال ومؤسسي المنظومة</h3>
+                            <ul class="team-tags">
+                                ${data.team.map(member => `<li><i class="fas fa-user-circle" style="color:var(--mint)"></i> ${member}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-gavel"></i> هيئة التقييم والاستثمار بالبرنامج</h3>
+                            <p style="font-weight:700; color: #cbd5e1; font-size:1.05rem;">لجنة تحكيم ومستثمري Shark Tank مصر</p>
+                        </div>
+                        
+                        <button onclick="downloadProjectPdf('${projectId}')" class="btn-pdf-download">
+                            <i class="fas fa-file-pdf"></i> تصدير التقرير الاستثماري الحاضن كملف (PDF) احترافي
+                        </button>
+                    </article>
+                `;
+            } else {
+                backBtn.style.display = "none";
+                let gridCardsHtml = '';
+                for (const key in projectsDatabase) {
+                    const item = projectsDatabase[key];
+                    let printableTitle = key === 'theqa' ? 'منصة ثقة (Theqa)' : (key === 'palmpix' ? 'منصة Palm Pix' : 'منصة BuzzBees (UGC)');
+
+                    gridCardsHtml += `
+                        <a href="?project=${key}" onclick="navigate(event, '${key}')" class="project-grid-card" data-title="${item.title}">
+                            <div>
+                                <span class="grid-badge">${item.gridBadge}</span>
+                                <h3 class="grid-title">${printableTitle}</h3>
+                                <p class="grid-desc">${item.gridDesc}</p>
+                            </div>
+                            <div class="grid-footer">
+                                <span><i class="fab fa-youtube" style="color:var(--danger)"></i> مناقشة شارك تانك</span>
+                                <span>استعراض ملف الجدوى <i class="fas fa-arrow-left" style="margin-right:5px;"></i></span>
+                            </div>
+                        </a>
+                    `;
+                }
+
+                mainContainer.innerHTML = `
+                    <div class="section-header">
+                        <h1>حاضنة مشاريع <span>Shark Tank</span></h1>
+                        <p>تصفح دراسات الجدوى والتقارير الاستثمارية المباشرة لأقوى الأفكار الريادية في السوق</p>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="gridSearch" class="search-input" placeholder="ابحث باسم المشروع، رائد الأعمال أو الداتا...">
+                    </div>
+
+                    <div class="projects-grid" id="gridContainer">
+                        ${gridCardsHtml}
+                    </div>
+                `;
+
+                document.getElementById('gridSearch').addEventListener('input', function() {
+                    const query = this.value.toLowerCase().trim();
+                    const cards = document.querySelectorAll('.project-grid-card');
+                    cards.forEach(card => {
+                        const title = card.getAttribute('data-title').toLowerCase();
+                        if (title.includes(query)) {
+                            card.style.display = "flex";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            }
+        }
+
+        function navigate(event, key) {
+            event.preventDefault();
+            window.history.pushState({}, '', '?project=' + key);
+            renderPage();
+        }
+
+        function goBackToList() {
+            window.history.pushState({}, '', window.location.pathname);
+            renderPage();
+        }
+
+        window.addEventListener('popstate', renderPage);
+        renderPage();
+
+        function downloadProjectPdf(id) {
+            const element = document.getElementById('printableArea');
+            const downloadBtn = element.querySelector('.btn-pdf-download');
+            const videoCard = document.getElementById('videoCard');
+            
+            if(downloadBtn) downloadBtn.style.display = 'none';
+            if(videoCard) videoCard.style.display = 'none';
+
+            html2pdf().set({
+                margin:       [15, 12, 15, 12],
+                filename:     `تقرير_PROJEXA_استثماري_${id}.pdf`,
+                image:        { type: 'jpeg', quality: 0.99 },
+                html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#090d16' },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            }).from(element).save().then(() => {
+                if(downloadBtn) downloadBtn.style.display = 'block';
+                if(videoCard) videoCard.style.display = 'block';
+            }).catch(error => {
+                if(downloadBtn) downloadBtn.style.display = 'block';
+                if(videoCard) videoCard.style.display = 'block';
+                console.error(error);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+    fetchInvestmentProjects();
+});
+
+function fetchInvestmentProjects() {
+    fetch('api.php?action=get_projects')
+    .then(response => response.json())
+    .then(projects => {
+        // فلترة المشاريع الاستثمارية فقط
+        const investmentProjects = projects.filter(p => p.is_investment_ready == 1);
+        
+        const gridContainer = document.getElementById('projectsGrid') || document.querySelector('.grid-container');
+        gridContainer.innerHTML = '';
+
+        if(investmentProjects.length === 0) {
+            gridContainer.innerHTML = '<p style="color:#deff9a; text-align:center; grid-column:1/-1; font-family:\'Cairo\'">لا توجد مشاريع معروضة في حاضنة الأعمال حالياً.</p>';
+            return;
+        }
+
+        investmentProjects.forEach(p => {
+            gridContainer.innerHTML += `
+                <div class="project-card" onclick="viewProjectDetails('${p.project_slug}')">
+                    <div class="card-header-glow">
+                        <span class="investment-badge"><i class="fas fa-chart-line"></i> فرصة استثمارية</span>
+                        <h3 class="project-title">${p.title}</h3>
+                    </div>
+                    <p class="project-excerpt">${p.summary || p.description.substring(0, 110)}...</p>
+                    <div class="investment-metrics">
+                        <div class="metric-box">
+                            <span class="metric-label">التمويل المطلوب</span>
+                            <span class="metric-value">${p.required_funding || 'غير محدد'}</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">العائد المتوقع IRR</span>
+                            <span class="metric-value" style="color:#deff9a;">${p.expected_irr || 'غير محدد'}</span>
+                        </div>
+                    </div>
+                    <div class="card-footer-meta">
+                        <span><i class="fas fa-university"></i> ${p.faculty_name || 'جامعة بورسعيد'}</span>
+                        <span class="btn-action-view">دراسة الجدوى <i class="fas fa-chevron-left"></i></span>
+                    </div>
+                </div>
+            `;
+        });
+    });
+}
+    </script>
+</body>
+</html>

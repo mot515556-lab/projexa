@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية الطب البشري - منصة PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* نظام الألوان الفاخر المخصص لكليات الطب - Ultra Premium Medical Teal & Dark Cyber */
+        :root { 
+            --bg-dark: #070b12; 
+            --bg-gradient: linear-gradient(135deg, #070b12 0%, #0a192f 60%, #0d2d44 100%);
+            --card-dark: rgba(15, 32, 54, 0.45); 
+            --card-border: rgba(45, 212, 191, 0.1);
+            --medical-teal: #2dd4bf; 
+            --teal-hover: #14b8a6;
+            --teal-glow: rgba(45, 212, 191, 0.25);
+            --text-light: #f8fafc; 
+            --text-muted: #94a3b8;
+            --heart-red: #f43f5e;
+            --danger-glow: rgba(244, 63, 94, 0.2);
+            --pulse-cyan: #06b6d4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        
+        body { 
+            background: var(--bg-dark); 
+            background-image: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-light); 
+            padding-top: 110px; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        /* البار العلوي الزجاجي النيون */
+        .navbar { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(7, 11, 18, 0.75); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            padding: 18px 8%; 
+            box-shadow: 0 4px 40px rgba(0,0,0,0.5); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(45, 212, 191, 0.15); 
+        }
+        .logo { text-decoration: none; font-size: 26px; font-weight: 900; color: var(--text-light); letter-spacing: 1px; }
+        .logo span { color: var(--medical-teal); text-shadow: 0 0 15px var(--teal-glow); }
+        
+        .btn-back { 
+            text-decoration: none; 
+            color: var(--medical-teal); 
+            font-weight: 700; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            cursor: pointer;
+            padding: 8px 18px;
+            background: rgba(45, 212, 191, 0.05);
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            border-radius: 50px;
+        }
+        .btn-back:hover { color: var(--bg-dark); background: var(--medical-teal); transform: translateX(5px); box-shadow: 0 0 15px var(--teal-glow); }
+
+        .container { max-width: 1200px; margin: 20px auto 60px auto; padding: 0 24px; animation: fadeInUp 0.7s ease forwards; }
+        
+        /* جرافيك هيدر الكلية الفخم */
+        .faculty-header { text-align: center; margin-bottom: 55px; position: relative; }
+        .faculty-header i.main-icon { font-size: 3.5rem; color: var(--medical-teal); text-shadow: 0 0 25px var(--teal-glow); animation: heartbeat 2.5s infinite ease-in-out; margin-bottom: 15px; display: inline-block; }
+        .faculty-header h1 { font-size: 3rem; font-weight: 900; letter-spacing: -0.5px; line-height: 1.3; }
+        .faculty-header h1 span { color: var(--medical-teal); text-shadow: 0 0 20px var(--teal-glow); }
+        .faculty-header p { color: var(--text-muted); margin-top: 15px; font-size: 1.15rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+
+        /* صندوق البحث والمحرك الذكي */
+        .search-wrapper { max-width: 600px; margin: 0 auto 55px auto; position: relative; }
+        .search-input { 
+            width: 100%; 
+            padding: 18px 28px; 
+            padding-right: 60px; 
+            background: rgba(15, 32, 54, 0.6); 
+            border: 1px solid var(--card-border); 
+            border-radius: 20px; 
+            color: white; 
+            font-size: 1.05rem; 
+            outline: none; 
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .search-input:focus { 
+            border-color: var(--medical-teal); 
+            box-shadow: 0 0 30px rgba(45, 212, 191, 0.2), inset 0 2px 4px rgba(0,0,0,0.2);
+            background: rgba(15, 32, 54, 0.85);
+        }
+        .search-icon { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.3rem; transition: 0.3s; }
+        .search-input:focus + .search-icon { color: var(--medical-teal); text-shadow: 0 0 10px var(--teal-glow); }
+
+        /* شبكة كروت مشاريع الطب البشري */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 35px; }
+        
+        .project-medical-card { 
+            background: var(--card-dark); 
+            border-radius: 26px; 
+            border: 1px solid var(--card-border); 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            position: relative;
+        }
+        .project-medical-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            right: -100%; 
+            width: 100%; 
+            height: 4px; 
+            background: linear-gradient(90deg, transparent, var(--medical-teal), transparent); 
+            transition: 0.6s;
+        }
+        .project-medical-card:hover { 
+            transform: translateY(-10px) scale(1.015); 
+            border-color: rgba(45, 212, 191, 0.35); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(45, 212, 191, 0.08); 
+        }
+        .project-medical-card:hover::before { right: 100%; }
+        
+        .card-body { padding: 32px; display: flex; flex-direction: column; flex-grow: 1; }
+        .badge-wrapper { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .medical-badge { background: rgba(45, 212, 191, 0.08); color: var(--medical-teal); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 700; border: 1px solid rgba(45, 212, 191, 0.2); }
+        .year-badge { color: var(--pulse-cyan); font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+        
+        .grid-project-title { font-size: 1.45rem; font-weight: 800; line-height: 1.5; margin-bottom: 14px; color: var(--text-light); transition: 0.3s; }
+        .project-medical-card:hover .grid-project-title { color: var(--medical-teal); }
+        .project-desc { color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1; }
+        
+        .meta-info { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #cbd5e1; }
+        .meta-info div { display: flex; align-items: center; gap: 8px; }
+        .meta-info i { color: var(--medical-teal); width: 16px; text-align: center; }
+
+        .card-footer { display: flex; justify-content: space-between; align-items: center; padding: 20px 32px; background: rgba(7, 11, 18, 0.4); border-top: 1px solid rgba(255,255,255,0.03); }
+        .btn-view-doc { text-decoration: none; color: var(--medical-teal); font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 6px; transition: 0.3s; cursor: pointer; }
+        .btn-view-doc i { transition: 0.3s; }
+        .project-medical-card:hover .btn-view-doc i { transform: translateX(-5px); }
+        
+        .pulse-indicator { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #34d399; font-weight: 600; }
+        .pulse-dot { width: 8px; height: 8px; background-color: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399; }
+        .no-results { display: none; text-align: center; padding: 60px 20px; border-radius: 22px; background: rgba(15, 32, 54, 0.3); border: 1px solid var(--card-border); color: var(--text-muted); font-size: 1.1rem; }
+
+        /* ==================== ستايل صفحة تفاصيل الفيو الطبية الاحترافية ==================== */
+        .project-detailed-view { 
+            background: rgba(15, 32, 54, 0.4); 
+            padding: 50px; 
+            border-radius: 32px; 
+            box-shadow: 0 30px 70px rgba(0,0,0,0.6); 
+            border: 1px solid var(--card-border); 
+            position: relative; 
+            overflow: hidden; 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .project-detailed-view::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            right: 0; 
+            width: 250px; 
+            height: 6px; 
+            background: linear-gradient(90deg, var(--teal-hover), var(--medical-teal)); 
+            box-shadow: 0 0 20px var(--teal-glow); 
+        }
+        
+        .view-subtitle { color: var(--medical-teal); font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .view-title { font-size: 2.4rem; font-weight: 900; line-height: 1.4; color: var(--text-light); margin-bottom: 35px; }
+        
+        .info-block { background: rgba(7, 11, 18, 0.5); padding: 30px; border-radius: 22px; margin-top: 30px; border-right: 5px solid var(--medical-teal); border-left: 1px solid rgba(255,255,255,0.02); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .info-block h3 { font-size: 1.3rem; color: var(--text-light); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 700; }
+        .info-block h3 i { color: var(--medical-teal); text-shadow: 0 0 10px var(--teal-glow); }
+        .info-block p { color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; }
+
+        .grid-problem-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .box-tile { padding: 30px; border-radius: 22px; }
+        .box-tile.tile-prob { background: rgba(244, 63, 94, 0.04); border: 1px solid rgba(244, 63, 94, 0.15); border-right: 5px solid var(--heart-red); }
+        .box-tile.tile-sol { background: rgba(45, 212, 191, 0.04); border: 1px solid rgba(45, 212, 191, 0.15); border-right: 5px solid var(--medical-teal); }
+        .box-tile h3 { font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .box-tile p { font-size: 1rem; line-height: 1.7; color: #e2e8f0; }
+
+        .team-tags { list-style: none; margin-top: 15px; display: flex; flex-wrap: wrap; gap: 12px; }
+        .team-tags li { background: rgba(255,255,255,0.04); padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #e2e8f0; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; }
+
+        .btn-pdf-download { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            width: 100%; 
+            background: linear-gradient(90deg, var(--teal-hover), var(--medical-teal)); 
+            color: var(--bg-dark); 
+            padding: 18px; 
+            border-radius: 18px; 
+            text-decoration: none; 
+            margin-top: 45px; 
+            font-weight: 900; 
+            font-size: 1.15rem; 
+            transition: all 0.4s ease; 
+            border: none; 
+            cursor: pointer; 
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.2); 
+        }
+        .btn-pdf-download:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(45, 212, 191, 0.4); background: var(--teal-hover); }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">PRO<span>JEXA</span></a>
+        <div class="nav-left">
+            <a id="backNavBtn" onclick="goBackToList()" class="btn-back" style="display: none;"><i class="fas fa-arrow-right"></i> العودة للقائمة</a>
+        </div>
+    </nav>
+
+    <div class="container" id="dynamicContainer"></div>
+
+    <script>
+        // قاعدة البيانات الطبية الشاملة لصفحة الـ View والتصدير
+        const medicalDatabase = {
+            "lung_cancer": {
+                title: "التشخيص المبكر للأورام السرطانية الرئوية باستخدام تقنيات التعلم العميق (Deep Learning)",
+                specialty: "الأشعة التشخيصية والذكاء الاصطناعي الطبي",
+                year: "دفعة 2026",
+                status: "جاهز للمناقشة العلنية",
+                idea: "تطوير خوارزمية ذكاء اصطناعي قادرة على فحص مئات المقاطع العرضية للأشعة المقطعية (CT Scans) في ثوانٍ معدودة، وتحديد البؤر والعُقيدات الرئوية متناهية الصغر التي قد تخفى على العين البشرية في المراحل المبكرة جداً (Stage 1).",
+                problem: "تأخر تشخيص سرطان الرئة يرفع نسب الوفيات بشكل حاد نظراً لأن الأعراض لا تظهر بوضوح إلا في المراحل المتقدمة، بالإضافة إلى الضغط الهائل والجهد البصري الكبير الواقع على أطباء الأشعة.",
+                solution: "توفير نظام 'طبيب مساعد ذكي' متكامل يعمل داخل مستشفيات الجامعة، يساعد في جدولة الحالات الحرجة وفحصها بدقة تصل إلى 98.4% وتقليل وقت القراءة الإشعاعية.",
+                goals: "رفع معدلات النجاة لمرضى الأورام، بناء قاعدة بيانات إشعاعية مصرية محلية لتدريب الأنماط البرمجية، وتقليص الأخطاء التشخيصية الإكلينيكية.",
+                supervisor: "أ.د. أحمد المنصوري (رئيس قسم الأشعة التشخيصية)",
+                team: ["د. منة الله طارق", "د. خالد يوسف", "د. سارة محمود"]
+            },
+            "icu_monit": {
+                title: "منظومة المراقبة التنبؤية لمرضى العناية المركزة الفائقة عن بُعد (IoMT)",
+                specialty: "طب الطوارئ، العناية المركزة، والأنظمة اللوجستية",
+                year: "دفعة 2026",
+                status: "حاصل على تقييم امتياز",
+                idea: "تأسيس منصة إنترنت أشياء طبية ترتبط بمستشعرات لاسلكية توضع على جسم المريض لقراءة وتدفق معدل ضربات القلب، ضغط الدم، والأكسجين فورا، مع تحليل البيانات تنبؤياً عبر السيرفر لإطلاق إنذار استباقي للطاقم الطبي.",
+                problem: "النقص العددي في أطقم التمريض داخل غرف الرعاية المركزة وصعوبة المتابعة اللحظية الدقيقة لكل مريض، مما يؤدي أحياناً لتأخر التدخل الطارئ عند حدوث النكسات المفاجئة.",
+                solution: "أتمتة منظومة الرصد والمتابعة عبر لوحة تحكم موحدة (Dashboard) للأطباء تطلق تحذيرات ذكية قبل تدهور حالة المريض الفعلي بـ 60 دقيقة بناءً على خوارزميات المؤشرات الحيوية.",
+                goals: "تقليل معدلات الوفيات داخل وحدات الرعاية الحرجة، وتخفيف الضغط اللوجستي على الأطقم الطبية، وتوفير سجل صحي رقمي مشفر لكل حالة.",
+                supervisor: "د. حسام رأفت (مستشار العناية المركزة بمستشفى الجامعة)",
+                team: ["د. كريم عبد العال", "د. نورهان السيد", "د. زياد أشرف"]
+            },
+            "robotic_surgery": {
+                title: "تقييم كفاءة الجراحة الروبوتية الموجهة عبر أنظمة الواقع الافتراضي المدمج (VR)",
+                specialty: "الجراحة العامة والتكنولوجيا التعليمية المتقدمة",
+                year: "دفعة 2025",
+                status: "أرشفة وتقييم معتمد",
+                idea: "دراسة وتصميم بيئة محاكاة افتراضية (Virtual Reality Simulation) دقيقة للغاية تعيد إنتاج غرف العمليات والعمليات الجراحية المعقدة (مثل استئصال المرارة بالمنظار) لتدريب شباب الأطباء على التحكم الروبوتي.",
+                problem: "ارتفاع تكلفة التدريب الجراحي العملي ومخاطره العالية على المرضى الفعليين، وغياب أدوات التقييم الرقمي الموضوعي لمهارة يدي الطبيب الجراح قبل دخوله العمليات الحقيقية.",
+                solution: "بروتوكول تدريب تكنولوجي آمن تماماً، يعطي الطبيب تقريراً بالدرجات والمليمترات عن مدى دقة حركته، وسرعته، وتجنبه للأوعية الدموية أثناء المحاكاة الروبوتية.",
+                goals: "تخريج جراحين بأعلى مستويات المهارة والجاهزية، تقليل الأخطاء الطبية الجراحية، وإدخال تكنولوجيا الجيل الخامس في التعليم الطبي.",
+                supervisor: "أ.د. مصطفى الجوهري (أستاذ الجراحة العامة)",
+                team: ["د. ياسمين فؤاد", "د. هشام عادل", "د. هشام محمد"]
+            },
+            "alzheimer_genome": {
+                title: "المؤشرات الحيوية الجينومية والوراثية للتنبؤ بمرض الزهايمر والخرف المبكر",
+                specialty: "طب الأعصاب والوراثة الجزيئية",
+                year: "دفعة 2026",
+                status: "قيد المراجعة والنشر النظري",
+                idea: "بحث مخبري استقصائي عميق يقوم على دراسة التنميط الجيني وفحص الطفرات الخاصة ببعض البروتينات المسؤولة عن ترسبات الدماغ، للوصول إلى خريطة جينية تتنبأ بقابلية الشخص للإصابة بالمرض قبل ظهور أي أعراض بعقد كامل.",
+                problem: "مرض الزهايمر يُكتشف دائماً في مراحل متأخرة جداً بعد تلف قطاع كبير من الخلايا العصبية بالدماغ، مما يجعل العلاجات الحالية تلطيفية فقط دون أي قدرة على إيقاف المرض.",
+                solution: "توفير فحص جينومي استباقي وتحديد الأشخاص الأكثر عرضة، لوضعهم تحت بروتوكولات حماية غذائية، وعصبية، وعلاجية تبطئ أو تمنع ظهور الخرف تماماً.",
+                goals: "حماية الشيخوخة وتقديم مساهمة علمية مصرية في أبحاث الجينوم البشري الدولي، وتوفير الملايين على قطاع الرعاية الصحية في رعاية مرضى الخرف.",
+                supervisor: "د. رانيا الشافعي (مدرس أمراض المخ والأعصاب)",
+                team: ["د. فاطمة الزهراء", "د. محمود عبد الكريم"]
+            }
+        };
+
+        // الدالة المسؤولة عن بناء وعرض الصفحة ديناميكياً
+        function renderMedicalPage() {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('project');
+            const container = document.getElementById('dynamicContainer');
+            const backBtn = document.getElementById('backNavBtn');
+
+            // 1. لو المستخدم داخل يشوف كارت مشروع معين (صفحة الفيو)
+            if (projectId && medicalDatabase[projectId]) {
+                backBtn.style.display = "flex";
+                const data = medicalDatabase[projectId];
+                
+                container.innerHTML = `
+                    <article class="project-detailed-view" id="printableMedicalArea">
+                        <header>
+                            <p class="view-subtitle"><i class="fas fa-stethoscope"></i> منصة PROJEXA الطبية — ${data.specialty}</p>
+                            <h1 class="view-title">${data.title}</h1>
+                        </header>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-microscope"></i> ملخص الفكرة والأطروحة العلمية</h3>
+                            <p>${data.idea}</p>
+                        </div>
+                        
+                        <div class="grid-problem-solution">
+                            <div class="box-tile tile-prob">
+                                <h3 style="color:var(--heart-red)"><i class="fas fa-virus-slash"></i> الفجوة الإكلينيكية والمشكلة</h3>
+                                <p>${data.problem}</p>
+                            </div>
+                            <div class="box-tile tile-sol">
+                                <h3 style="color:var(--medical-teal)"><i class="fas fa-capsules"></i> الابتكار والحل الطبي المطور</h3>
+                                <p>${data.solution}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-bullseye"></i> الأهداف الاستراتيجية والصحية للمشروع</h3>
+                            <p>${data.goals}</p>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-user-md"></i> الطاقم البحثي والإشرافي</h3>
+                            <p style="font-weight: 700; margin-bottom: 10px; color: var(--text-light)">
+                                <i class="fas fa-chalkboard-teacher" style="color:var(--medical-teal); margin-left: 8px;"></i> المشرف العام: ${data.supervisor}
+                            </p>
+                            <ul class="team-tags">
+                                ${data.team.map(member => `<li><i class="fas fa-user-circle" style="color:var(--medical-teal)"></i> ${member}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h3><i class="fas fa-clipboard-check"></i> حالة المشروع الأكاديمية</h3>
+                            <p style="color: var(--pulse-cyan); font-weight: bold;"><i class="fas fa-stamp"></i> ${data.status} — ${data.year}</p>
+                        </div>
+                        
+                        <button onclick="downloadMedicalPdf('${projectId}')" class="btn-pdf-download">
+                            <i class="fas fa-file-pdf"></i> تصدير وثيقة البحث الطبي كملف PDF معتمد
+                        </button>
+                    </article>
+                `;
+            } 
+            // 2. لو المستخدم في القائمة الرئيسية للكلية
+            else {
+                backBtn.style.display = "none";
+                container.innerHTML = `
+                    <header class="faculty-header">
+                        <i class="fas fa-heartbeat main-icon"></i>
+                        <h1>مشاريع تخرج كلية <span>الطب البشري</span></h1>
+                        <p>منصة PROJEXA تستعرض أبحاث تخرج وابتكارات الكوادر الطبية الشابة لدمج الحلول الإكلينيكية بالتطور التكنولوجي لخدمة القطاع الصحي والعلاجي.</p>
+                    </header>
+
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="medicalSearch" class="search-input" placeholder="البحث باسم البحث الطبي، التقنية المستخدمة أو التخصص...">
+                    </div>
+
+                    <div class="projects-grid" id="medicalGrid">
+                        ${Object.keys(medicalDatabase).map(key => {
+                            const item = medicalDatabase[key];
+                            return `
+                                <article class="project-medical-card" data-search="${item.title} ${item.specialty} ${item.idea}">
+                                    <div class="card-body">
+                                        <div class="badge-wrapper">
+                                            <span class="medical-badge">${item.specialty}</span>
+                                            <span class="year-badge"><i class="far fa-calendar-alt"></i> ${item.year}</span>
+                                        </div>
+                                        <h3 class="grid-project-title">${item.title.split('(')[0]}</h3>
+                                        <p class="project-desc">${item.idea.substring(0, 140)}...</p>
+                                        <div class="meta-info">
+                                            <div><i class="fas fa-user-md"></i> <span>${item.supervisor}</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="pulse-indicator"><span class="pulse-dot"></span> معتمد</span>
+                                        <a onclick="navigateToProject(event, '${key}')" class="btn-view-doc">ملف البحث <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </article>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    <div class="no-results" id="noResultsBlock">
+                        <i class="fas fa-heart-broken" style="font-size: 2.5rem; color: var(--heart-red); margin-bottom: 15px; display: block;"></i>
+                        عذراً، لم نجد مشاريع طبية تطابق مصطلحات البحث الحالية.. جرب كلمات أخرى مثل (سرطان، روبوت، عناية).
+                    </div>
+                `;
+
+                // تفعيل ميزة الفلترة والبحث اللحظي
+                document.getElementById('medicalSearch').addEventListener('input', function() {
+                    const query = this.value.toLowerCase().trim();
+                    const cards = document.querySelectorAll('.project-medical-card');
+                    const noResults = document.getElementById('noResultsBlock');
+                    let visibleCount = 0;
+
+                    cards.forEach(card => {
+                        const searchData = card.getAttribute('data-search').toLowerCase();
+                        if (searchData.includes(query)) {
+                            card.style.display = "flex";
+                            visibleCount++;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                    noResults.style.display = visibleCount === 0 ? "block" : "none";
+                });
+            }
+        }
+
+        // دوال التنقل الذكي بدون عمل ريفريش (Single Page Application Style)
+        function navigateToProject(event, key) {
+            event.preventDefault();
+            window.history.pushState({}, '', '?project=' + key);
+            renderMedicalPage();
+        }
+
+        function goBackToList() {
+            window.history.pushState({}, '', window.location.pathname);
+            renderMedicalPage();
+        }
+
+        window.addEventListener('popstate', renderMedicalPage);
+        renderMedicalPage(); // تشغيل الصفحة فور التحميل
+
+        // دالة تصدير الـ PDF الاحترافي وحماية العناصر أثناء الطباعة
+        function downloadMedicalPdf(id) {
+            const element = document.getElementById('printableMedicalArea');
+            const downloadBtn = element.querySelector('.btn-pdf-download');
+            
+            if(downloadBtn) downloadBtn.style.display = 'none';
+
+            html2pdf().set({
+                margin:       [15, 12, 15, 12],
+                filename:     `وثيقة_PROJEXA_طبية_${id}.pdf`,
+                image:        { type: 'jpeg', quality: 0.99 },
+                html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#070b12' },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            }).from(element).save().then(() => {
+                if(downloadBtn) downloadBtn.style.display = 'flex';
+            }).catch(error => {
+                if(downloadBtn) downloadBtn.style.display = 'flex';
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>

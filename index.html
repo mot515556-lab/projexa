@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projexa | منصة مشاريع التخرج</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-right">
+        <img src="uni.jpg" alt="جامعة بورسعيد" class="header-logo">
+        <img src="college.jpg" alt="كلية التربية النوعية" class="header-logo">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="projects.html">المشاريع</a></li>
+        <li><a href="external_projects.html">مشاريع ريادة الأعمال (Shark Tank)</a></li>
+        <li><a href="team.html">فريق العمل</a></li> <li id="uploadItem">
+            <a href="upload.html" class="btn-main">رفع مشروع جديد <i class="fas fa-plus-circle"></i></a>
+        </li>
+    </ul>
+
+    <div class="nav-left">
+        <div id="authControls" class="nav-controls" style="display: flex; align-items: center; gap: 10px;">
+            <a href="login.html" id="adminBtn" style="text-decoration:none; color:#64748b; font-size:14px;">الإدارة</a>
+            <a href="register.html" id="loginBtn" class="btn-main" style="background:#1e40af; color:white; padding:8px 15px; border-radius:8px; text-decoration:none;">تسجيل الدخول</a>
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+        
+        <img src="dept.jpg" alt="تكنولوجيا التعليم" class="header-logo">
+        <div class="platform-brand">
+            <img src="logo.jpg" alt="Projexa" class="platform-logo">
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>مشاريع تخرج تكنولوجيا التعليم</h1>
+        <p>المنصة الرسمية لاستعراض وتوثيق ابتكارات طلاب جامعة بورسعيد</p>
+        
+        <div class="search-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن مشروع، باحث، أو قسم..." onkeyup="liveSearch()">
+                <button class="search-btn">بحث</button>
+            </div>
+            <div id="searchResults" class="search-dropdown"></div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">+500</span>
+                <span class="stat-label">مشروع</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">+1200</span>
+                <span class="stat-label">طالب</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15</span>
+                <span class="stat-label">كلية</span>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="colleges-section">
+    <div class="container">
+        <h2 class="section-title">استكشف مشاريع الكليات</h2>
+        <p class="section-subtitle">اختر الكلية لاستعراض ابتكارات طلابها وأبحاثهم</p>
+
+        <div class="colleges-grid">
+            
+            <a href="faculty-specific.html" class="college-card" style="text-decoration: none; color: inherit;">
+                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>التربية النوعية</h3>
+                <p>قسم تكنولوجيا التعليم، الاقتصاد المنزلي، والفنون.</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-project-diagram"></i> 145 مشروع</span>
+                </div>
+                <span class="card-btn">دخول القسم</span>
+            </a>
+
+            <a href="engineering.html" class="college-card" style="text-decoration: none; color: inherit;">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>كلية الهندسة</h3>
+                <p>تصفح مشاريع أقسام الهندسة المختلفة</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-project-diagram"></i> 320 مشروع</span>
+                </div>
+                <span class="card-btn">دخول القسم</span>
+            </a>
+
+            <a href="computers_inf_college.html" class="college-card" style="text-decoration: none; color: inherit;">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>الحاسبات والمعلومات</h3>
+                <p>الذكاء الاصطناعي، الأمن السيبراني، وتطبيقات الويب.</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-project-diagram"></i> 210 مشروع</span>
+                </div>
+                <span class="card-btn">دخول القسم</span>
+            </a>
+
+            
+    </div>
+</section>
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<section class="recent-projects">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">أحدث مشاريع التخرج</h2>
+            <a href="#" class="view-all">عرض كل المشاريع <i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-tag">تكنولوجيا التعليم</div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="مشروع">
+                </div>
+                <div class="project-info">
+                    <h3>نظام إدارة تعلم ذكي (LMS)</h3>
+                    <p class="student-name">بواسطة: أحمد محمد علي</p>
+                    <div class="project-footer">
+                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                        <span class="date">منذ يومين</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-tag">هندسة</div>
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500&q=80" alt="مشروع">
+                </div>
+                <div class="project-info">
+                    <h3>ذراع آلي بنظام الهيدروليك</h3>
+                    <p class="student-name">بواسطة: سارة محمود</p>
+                    <div class="project-footer">
+                        <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                        <span class="date">منذ 5 أيام</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-tag">حاسبات</div>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" alt="مشروع">
+                </div>
+                <div class="project-info">
+                    <h3>تطبيق كشف الأمراض بالذكاء الاصطناعي</h3>
+                    <p class="student-name">بواسطة: فريق عمل Projexa</p>
+                    <div class="project-footer">
+                        <span class="rating"><i class="fas fa-star"></i> 5.0</span>
+                        <span class="date">منذ أسبوع</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer-distributed">
+    <div class="footer-container">
+        
+        <div class="footer-left">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> PROJEXA
+            </div>
+            <p class="footer-description">
+                المنصة الرسمية لمشاريع تخرج طلاب جامعة بورسعيد. نهدف لتوثيق الإبداع وتسهيل الوصول للمعرفة.
+            </p>
+        </div>
+
+        <div class="footer-center">
+            <h3>روابط هامة</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="projects.html">المشاريع</a></li>
+                <li><a href="team.html">فريق العمل</a></li>
+                <li><a href="upload.html">رفع مشروع</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-right">
+            <h3>تابعنا على</h3>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/share/1AGaMsWZnc/" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/projexa.tech?igsh=YXc0ems1MWwxMDFq" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@projexa.tech2?_r=1&_d=f0j78ilg5k5j8d&sec_uid=MS4wLjABAAAANdFqrE_tZIEoHV6UyH8RRQMRU5VEoJoj9ltaSQAtXCo-sZ4SHJLdnhG1G4c2pHvM&share_author_id=7597660776220525586&sharer_language=ar&source=h5_m&u_code=f1flla3e58cj77&timestamp=1769033412&user_id=7597660776220525586&sec_user_id=MS4wLjABAAAANdFqrE_tZIEoHV6UyH8RRQMRU5VEoJoj9ltaSQAtXCo-sZ4SHJLdnhG1G4c2pHvM&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7588337213990078216&share_link_id=929a707d-8923-4646-a0e6-76fb6ff5c782&share_app_id=1233&ugbiz_name=ACCOUNT&social_share_type=5&enable_checksum=1" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <p>جميع الحقوق محفوظة لجامعة بورسعيد &copy; 2026 | صنع بواسطة فريق Projexa</p>
+    </div>
+</footer>
+<link rel="stylesheet" href="chat.css">
+<script src="chat.js"></script>
+<script src="main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginBtn = document.querySelector('.btn-login');
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const role = localStorage.getItem('role');
+
+    if (isLoggedIn === 'true') {
+        if (role === 'admin') {
+            loginBtn.innerText = "لوحة التحكم";
+            loginBtn.href = "admin.html";
+        } else {
+            loginBtn.innerText = "حسابي";
+            loginBtn.href = "#"; // أو الصفحة الشخصية للطالب لو موجودة
+        }
+    }
+});
+function logout() {
+    // 1. مسح كل البيانات المحفوظة (الرتبة وحالة الدخول)
+    localStorage.removeItem('role');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userName');
+
+    // 2. إظهار رسالة تأكيد (اختياري)
+    alert("تم تسجيل الخروج بنجاح");
+
+    // 3. التوجيه للصفحة الرئيسية
+    window.location.href = "index.html";
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const logoutBtn = document.getElementById('logoutBtn'); // افترضي إن ده ID الزرار
+
+    if (isLoggedIn === 'true') {
+        logoutBtn.style.display = 'block'; // اظهر الزرار لو مسجل
+    } else {
+        logoutBtn.style.display = 'none';  // اخفيه لو مش مسجل
+    }
+});
+// دالة للبحث والتحويل التلقائي لصفحة المشاريع الحاضنة
+function searchAndNavigateToProject() {
+    // افترضنا إن ده الـ Input بتاع البحث في صفحتك الرئيسية
+    const searchInput = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+    
+    // ربط الكلمات الدلالية بالمشاريع
+    if (searchInput.includes('ثقة') || searchInput.includes('theqa') || searchInput.includes('عقود') || searchInput.includes('ضمان')) {
+        window.location.href = 'external_projects.html?project=theqa';
+    } 
+    else if (searchInput.includes('بالم') || searchInput.includes('palm') || searchInput.includes('تصوير') || searchInput.includes('سينما')) {
+        window.location.href = 'external_projects.html?project=palmpix';
+    } 
+    else if (searchInput.includes('بز') || searchInput.includes('buzz') || searchInput.includes('bees') || searchInput.includes('تسويق') || searchInput.includes('ugc')) {
+        window.location.href = 'external_projects.html?project=ugc_marketing';
+    } 
+    else {
+        // لو مفيش كلمة محددة يوديه على صفحة المشاريع يختار بنفسه
+        window.location.href = 'external_projects.html';
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // تشغيل فحص حالة الدخول الموحد لمنصة PROJEXA
+    checkLoginStatus(); 
+    setupDynamicNavigation();
+});
+
+function setupDynamicNavigation() {
+    console.log("تمت تهيئة نظام التنقل الديناميكي لمنصة PROJEXA بنجاح.");
+    // هنا نقوم بتهيئة أي عدادات حية لو حابب تعرض إجمالي عدد المشاريع المرفوعة في الداتا بيز على الصفحة الرئيسية
+    fetch('api.php?action=get_projects')
+    .then(response => response.json())
+    .then(projects => {
+        const statsElement = document.getElementById('totalProjectsCount');
+        if(statsElement) {
+            statsElement.innerText = projects.length;
+        }
+    })
+    .catch(err => console.log("عداد المشاريع الحية سينشط عند رفع الداتا بيز."));
+}
+</script>
+
+</body>
+</html>
+   

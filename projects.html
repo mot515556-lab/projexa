@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استكشاف الكليات | PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background: #0f172a; color: white; overflow-x: hidden; }
+
+        /* نيف بار زجاجي */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { font-size: 26px; font-weight: 900; color: white; text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.8); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* الهيرو باستخدام صورتك المرفوعة */
+        .hero {
+            height: 75vh;
+            /* تأكد أن اسم الصورة في الفولدر هو hero-bg.jpg */
+            background: linear-gradient(rgba(15, 23, 42, 0.6), #0f172a), url('hero-bg.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding-top: 80px;
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+        /* صندوق البحث الفخم */
+        .search-area {
+            width: 100%; max-width: 700px; background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px); padding: 8px; border-radius: 100px;
+            display: flex; border: 1px solid rgba(255, 255, 255, 0.2); margin-top: 30px;
+        }
+        .search-area input { flex: 1; background: transparent; border: none; padding: 15px 30px; color: white; font-size: 1.1rem; outline: none; }
+        .search-btn { background: var(--primary); color: white; border: none; padding: 0 40px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+        .search-btn:hover { background: white; color: var(--primary); transform: scale(1.05); }
+
+        /* قسم الكليات */
+        .colleges-section { padding: 80px 8%; }
+        .colleges-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+
+        .college-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 20px; border-radius: 25px; text-align: center;
+            transition: 0.4s; cursor: pointer; text-decoration: none; color: white;
+        }
+        .college-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .college-card:hover { 
+            background: var(--primary); transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2); 
+        }
+        .college-card:hover i { color: white; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">PRO<span>JEXA</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            
+    </nav>
+
+    <header class="hero">
+        <h1>مستقبل الابتكار</h1>
+        <p>استكشف مشاريع تخرج جامعة بورسعيد بأحدث التقنيات</p>
+        
+        <div class="search-area">
+            <input type="text" id="facultySearch" placeholder="ابحث عن كلية أو قسم...">
+            <button class="search-btn" onclick="handleSearch()">بـحـث</button>
+        </div>
+    </header>
+
+    <section class="colleges-section">
+        <div class="colleges-grid">
+            <a href="engineering.html" class="college-card">
+                <i class="fas fa-microchip"></i>
+                <h3>كلية الهندسة</h3>
+            </a>
+            <a href="faculty-specific.html" class="college-card">
+                <i class="fas fa-palette"></i>
+                <h3>تربية نوعية</h3>
+            </a>
+            <a href="computers_inf_college.html" class="college-card">
+                <i class="fas fa-code"></i>
+                <h3>حاسبات ومعلومات</h3>
+            </a>
+            <a href="science.html" class="college-card">
+                <i class="fas fa-flask"></i>
+                <h3>كلية العلوم</h3>
+            </a>
+            <a href="medical_faculty.html" class="college-card">
+                <i class="fas fa-user-md"></i>
+                <h3>كلية الطب</h3>
+            </a>
+            <a href="#" class="college-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>كليات اخري </h3>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        function handleSearch() {
+            const val = document.getElementById('facultySearch').value.trim();
+            if (val.includes('هندسة')) {
+                window.location.href = 'engineering.html';
+            } else {
+                alert("سيتم إضافة مشاريع هذه الكلية قريباً");
+            }
+        }
+    </script>
+    <script>
+function checkLoginStatus() {
+    // 1. هنجيب بياناتك من الذاكرة
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const role = localStorage.getItem('role');
+
+    // 2. هندور على المكان اللي فيه أزرار "الدخول" و "التسجيل" (الناف بار)
+    // تأكد إنك حاطط id="authArea" في المكان ده في كل الصفحات
+    const authArea = document.getElementById('authArea') || document.getElementById('authSection') || document.querySelector('.nav-left');
+
+    if (isLoggedIn === 'true' && userName) {
+        // 3. لو مسجل، هنمسح "دخول الطلاب" ونحط اسمك وزرار خروج
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span class="user-name-txt">مرحباً، ${userName}</span>
+                ${role === 'admin' ? '<a href="admin.html" class="btn-main" style="background:#0f172a; color:white; padding:5px; border-radius:5px; text-decoration:none; font-size:12px;">لوحة التحكم</a>' : ''}
+                <button onclick="logoutNow()" class="logout-btn-nav">خروج</button>
+            </div>
+        `;
+    }
+}
+
+function logoutNow() {
+    if (confirm("هل تريد تسجيل الخروج؟")) {
+        localStorage.clear(); // بيمسح الذاكرة نهائياً
+        window.location.href = "index.html"; // بيرجعك للرئيسية وأنت ممسوح
+    }
+}
+
+// تشغيل الفحص فوراً أول ما الصفحة تفتح
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+</script>
+</body>
+</html>

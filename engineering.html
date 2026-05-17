@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية الهندسة | PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* نظام ألوان النيون الفاخر الموحد للمنصة */
+        :root {
+            --bg-deep: #020617;
+            --bg-gradient: linear-gradient(135deg, #020617 0%, #0b1329 50%, #0f172a 100%);
+            --card-glass: rgba(15, 23, 42, 0.75);
+            --industrial-border: rgba(255, 255, 255, 0.06);
+            --neon-blue: #3b82f6;
+            --neon-cyan: #06b6d4;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-deep); 
+            background-image: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-light); 
+            overflow-x: hidden;
+            padding-top: 90px;
+        }
+
+        /* شبكة الخلفية الرقمية الهندسية */
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.015) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1;
+        }
+
+        /* الناف بار الشفاف الفاخر */
+        .navbar {
+            position: fixed; top: 0; width: 100%; 
+            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; 
+            z-index: 1000; border-bottom: 1px solid var(--industrial-border);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+        }
+        
+        .navbar .logo { font-size: 26px; font-weight: 900; color: var(--text-light); text-decoration: none; }
+        .navbar .logo span { color: var(--neon-cyan); text-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+
+        .back-btn { text-decoration: none; color: var(--text-muted); font-weight: 700; transition: 0.2s; }
+        .back-btn:hover { color: white; }
+
+        /* محتوى الهيدر */
+        .main-header { text-align: center; margin: 50px auto 30px; max-width: 700px; padding: 0 20px; }
+        .main-header h1 { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #fff 40%, var(--neon-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .main-header p { color: var(--text-muted); margin-top: 10px; font-size: 1.1rem; }
+
+        /* شبكة عرض الأقسام */
+        .departments-container {
+            max-width: 1100px; margin: 40px auto 60px; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+        }
+
+        /* كروت الأقسام الزجاجية والمشعة */
+        .dept-card {
+            background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px; border: 2px solid var(--industrial-border); padding: 35px; text-align: center;
+            text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden;
+        }
+
+        .dept-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: var(--neon-cyan); transition: 0.4s ease; box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .dept-icon {
+            width: 70px; height: 70px; background: rgba(6, 182, 212, 0.06); border: 1px solid rgba(6, 182, 212, 0.15);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 26px; color: var(--neon-cyan); margin-bottom: 20px; transition: 0.4s;
+        }
+
+        .dept-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; transition: 0.3s; }
+        .dept-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* تأثيرات التحويم الجذابة */
+        .dept-card:hover {
+            transform: translateY(-8px); border-color: var(--neon-cyan); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+        }
+        .dept-card:hover::before { width: 100%; }
+        .dept-card:hover .dept-icon { background: var(--neon-cyan); color: white; box-shadow: 0 0 20px var(--neon-cyan); transform: rotate(-5deg); }
+        .dept-card:hover h3 { color: var(--neon-cyan); }
+
+        /* التحكم بجلسة المستخدم */
+        .user-nav-box { display: flex; align-items: center; gap: 15px; font-size: 14px; }
+        .user-name-txt { font-weight: 700; color: var(--neon-cyan); }
+        .logout-btn-nav { background: #ef4444; color: white; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .departments-container { grid-template-columns: 1fr; }
+            .main-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">PRO<span>JEXA</span></a>
+        <div class="nav-left" id="authArea">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> الرئيسية</a>
+        </div>
+    </nav>
+
+    <main>
+        <header class="main-header">
+            <h1>كلية الهندسة</h1>
+            <p>اختر القسم الأكاديمي لاستعراض أحدث وأقوى مشاريع التخرج والابتكارات الهندسية المسجلة.</p>
+        </header>
+
+        <div class="departments-container">
+            <a href="civil_projects.html" class="dept-card">
+                <div class="dept-icon"><i class="fas fa-hard-hat"></i></div>
+                <h3>هندسة مدنية</h3>
+                <p>مشاريع المنشآت، تصميم الخرسانة، ميكانيكا التربة، وتشييد الأبراج والأساسات العميقة.</p>
+            </a>
+
+            <a href="architectural_projects.html" class="dept-card">
+                <div class="dept-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>هندسة معمارية</h3>
+                <p>التخطيط العمراني المستدام، التصميم البيئي، وإعادة إحياء الهوية والتراث البصري.</p>
+            </a>
+
+            <a href="computer_projects.html" class="dept-card">
+                <div class="dept-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>هندسة الحاسبات</h3>
+                <p>أنظمة التحكم والذكاء الاصطناعي، إنترنت الأشياء الروبوتية، والرؤية الحاسوبية الأمنية.</p>
+            </a>
+        </div>
+    </main>
+
+<script>
+function checkLoginStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const role = localStorage.getItem('role');
+    const authArea = document.getElementById('authArea');
+
+    if (isLoggedIn === 'true' && userName && authArea) {
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span class="user-name-txt">مرحباً، ${userName}</span>
+                ${role === 'admin' ? '<a href="admin.html" style="background:var(--neon-blue); color:white; padding:5px 10px; border-radius:5px; text-decoration:none; font-size:12px;">لوحة التحكم</a>' : ''}
+                <button onclick="logoutNow()" class="logout-btn-nav">خروج</button>
+            </div>
+        `;
+    }
+}
+function logoutNow() {
+    if (confirm("هل تريد تسجيل الخروج؟")) { localStorage.clear(); window.location.reload(); }
+}
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+document.addEventListener('DOMContentLoaded', function() {
+    // فحص صلاحيات الطالب أو الدكتور عند الدخول لصفحة كلية الهندسة
+    checkLoginStatus();
+    loadEngineeringStats();
+});
+
+function loadEngineeringStats() {
+    // سحب مشاريع كلية الهندسة بالكامل من الباك إند لعرض إحصائيات سريعة بالأقسام إن وجد
+    fetch('api.php?action=get_projects&faculty=' + encodeURIComponent('كلية الهندسة'))
+    .then(response => response.json())
+    .then(projects => {
+        console.log(`إجمالي مشاريع كلية الهندسة المتوفرة في قاعدة البيانات: ${projects.length}`);
+        
+        // كود اختياري لتوزيع العدادات على الأقسام حيا في صفحة هندسة الرئيسية
+        const computerCount = projects.filter(p => p.department_name === 'هندسة الحاسبات والتحكم').length;
+        const archCount = projects.filter(p => p.department_name === 'الهندسة المعمارية').length;
+        const civilCount = projects.filter(p => p.department_name === 'الهندسة المدنية').length;
+        
+        if(document.getElementById('computerCountTxt')) document.getElementById('computerCountTxt').innerText = `${computerCount} مشروع`;
+        if(document.getElementById('archCountTxt')) document.getElementById('archCountTxt').innerText = `${archCount} مشروع`;
+        if(document.getElementById('civilCountTxt')) document.getElementById('civilCountTxt').innerText = `${civilCount} مشروع`;
+    })
+    .catch(err => console.log("عدادات أقسام الهندسة ستعمل تلقائياً فور تغذية الجداول."));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>دخول الإدارة | Projexa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --admin-color: #1e40af; --bg: #0f172a; }
+        body { background: var(--bg); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Cairo', sans-serif; }
+        .box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        button { width: 100%; padding: 12px; background: var(--admin-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>دخول المسؤول</h2>
+        <input type="text" id="user" placeholder="اسم المسؤول">
+        <input type="password" id="pass" placeholder="كلمة المرور">
+        <button onclick="adminLogin()">دخول</button>
+    </div>
+    <script>
+        function adminLogin() {
+            var u = document.getElementById('user').value;
+            var p = document.getElementById('pass').value;
+            if (u === "admin" && p === "123") {
+                localStorage.setItem('role', 'admin'); // بنعرف المتصفح إنك أدمن
+                window.location.href = "admin.html"; 
+            } else {
+                alert("بيانات الدخول غلط!");
+            }
+        }
+    </script>
+</body>
+</html>

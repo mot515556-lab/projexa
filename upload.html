@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <script>
+    if (localStorage.getItem('role') !== 'student' && localStorage.getItem('role') !== 'admin') {
+        alert("عفواً! يجب تسجيل حساب طالب أولاً لتتمكن من رفع مشروعك.");
+        window.location.href = "register.html";
+    }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع مشروع تخرج | Projexa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root { --primary: #1e40af; --accent: #38bdf8; --bg: #f8fafc; }
+        body { font-family: 'Cairo', sans-serif; background: var(--bg); margin: 0; }
+        
+        /* Navbar */
+        .nav { background: white; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .back-link { text-decoration: none; color: #64748b; font-weight: 600; transition: 0.3s; }
+        .back-link:hover { color: var(--primary); }
+
+        /* Main Container */
+        .container { max-width: 900px; margin: 50px auto; display: grid; grid-template-columns: 1fr 2fr; gap: 30px; padding: 0 20px; }
+
+        /* Left Side (Info) */
+        .info-panel { background: var(--primary); color: white; padding: 40px; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; }
+        .info-panel h2 { margin-bottom: 20px; font-size: 28px; }
+        .info-panel li { margin-bottom: 15px; list-style: none; display: flex; align-items: center; gap: 10px; font-size: 14px; opacity: 0.9; }
+
+        /* Right Side (Form) */
+        .form-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 10px; font-weight: 700; color: #1e293b; font-size: 14px; }
+        input, select, textarea { width: 100%; padding: 14px; border: 2px solid #f1f5f9; background: #f8fafc; border-radius: 12px; outline: none; transition: 0.3s; font-family: 'Cairo'; }
+        input:focus { border-color: var(--accent); background: white; }
+
+        /* File Upload Zone */
+        .upload-zone { border: 2px dashed #e2e8f0; padding: 30px; text-align: center; border-radius: 15px; cursor: pointer; transition: 0.3s; position: relative; }
+        .upload-zone:hover { border-color: var(--primary); background: #f0f7ff; }
+        .upload-zone i { font-size: 40px; color: var(--primary); margin-bottom: 10px; }
+
+        /* Progress Bar */
+        #progress-container { display: none; margin-top: 20px; }
+        .progress-bar { width: 100%; background: #e2e8f0; height: 10px; border-radius: 10px; overflow: hidden; }
+        .progress-fill { width: 0%; height: 100%; background: var(--primary); transition: 0.4s; }
+
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 15px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(30, 64, 175, 0.2); }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } .info-panel { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="logo">PROJEXA</a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+    </nav>
+
+    <div class="container">
+        <div class="info-panel">
+            <h2>تعليمات الرفع</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> تأكد من كتابة اسم المشروع بدقة.</li>
+                <li><i class="fas fa-check-circle"></i> ملف المشروع يجب أن يكون بصيغة PDF.</li>
+                <li><i class="fas fa-check-circle"></i> ملخص المشروع لا يقل عن 50 كلمة.</li>
+                <li><i class="fas fa-check-circle"></i> يتم الرد خلال 48 ساعة.</li>
+            </ul>
+            <div style="margin-top: 40px; opacity: 0.7;">
+                <i class="fas fa-university fa-5x"></i>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>اسم مشروع التخرج</label>
+                    <input type="text" id="pTitle" placeholder="أدخل اسم المشروع كاملاً" required>
+                </div>
+
+                <div class="form-group">
+                    <label>الكلية</label>
+                    <select required>
+                        <option value="">اختر كليتك</option>
+                        <option>كلية الهندسة</option>
+                        <option>كلية التجارة</option>
+                        <option>كلية الحاسبات</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>ملخص عن الفكرة</label>
+                    <textarea rows="4" placeholder="اكتب نبذة مختصرة عن أهداف المشروع..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>مستند المشروع (PDF)</label>
+                    <div class="upload-zone" onclick="document.getElementById('pdf').click()">
+                        <i class="fas fa-file-upload"></i>
+                        <p id="file-text">اسحب الملف هنا أو اضغط للاختيار</p>
+                        <input type="file" id="pdf" hidden accept=".pdf" onchange="showFile()">
+                    </div>
+                </div>
+
+                <div id="progress-container">
+                    <p id="status-text" style="font-size: 12px; margin-bottom: 5px;">جاري الرفع... 0%</p>
+                    <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+                </div>
+
+                <button type="submit" class="btn-submit">تأكيد الرفع والارسال</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showFile() {
+            let file = document.getElementById('pdf').files[0];
+            if(file) {
+                document.getElementById('file-text').innerText = "تم اختيار: " + file.name;
+                document.getElementById('file-text').style.color = "#1e40af";
+            }
+        }
+
+        document.getElementById('uploadForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            // إظهار شريط التقدم الوهمي (Animation)
+            document.getElementById('progress-container').style.display = 'block';
+            let fill = document.getElementById('fill');
+            let status = document.getElementById('status-text');
+            let width = 0;
+            
+            let interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    status.innerText = "تم الرفع بنجاح! جاري التحويل...";
+                    setTimeout(() => {
+                        alert("تم استلام مشروعك! سيظهر في لوحة التحكم قريباً.");
+                        window.location.href = "index.html";
+                    }, 1000);
+                } else {
+                    width += 5;
+                    fill.style.width = width + '%';
+                    status.innerText = "جاري الرفع... " + width + "%";
+                }
+            }, 100);
+        };
+        document.getElementById('uploadForm').onsubmit = function(e) {
+    e.preventDefault();
+    
+    // 1. تجميع البيانات
+    const newProject = {
+        id: Date.now(), // رقم مميز للمشروع
+        title: document.getElementById('title').value,
+        faculty: document.getElementById('faculty').value,
+        team: document.getElementById('team').value,
+        summary: document.getElementById('summary').value,
+        status: "pending" // قيد الانتظار
+    };
+
+    // 2. حفظ في الذاكرة (LocalStorage)
+    let projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+    projects.push(newProject);
+    localStorage.setItem('myProjects', JSON.stringify(projects));
+
+    // 3. أنيميشن الرفع (عشان المنظر)
+    document.getElementById('progress-container').style.display = 'block';
+    let fill = document.getElementById('fill');
+    let width = 0;
+    let interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            alert("تم رفع المشروع بنجاح!");
+            window.location.href = "index.html";
+        } else {
+            width += 10;
+            fill.style.width = width + '%';
+        }
+    }, 150);
+};
+    </script>
+<script src="chat.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
+   

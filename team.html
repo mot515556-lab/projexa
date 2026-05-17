@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فريق العمل | Projexa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root { 
+            --primary: #1e40af; 
+            --accent: #38bdf8; 
+            --bg: #f8fafc; 
+            --white: #ffffff; 
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--bg); color: #1e293b; line-height: 1.6; }
+
+        /* نيف بار */
+        .navbar { background: var(--white); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* رأس الصفحة */
+        .team-header { background: var(--primary); padding: 100px 20px 140px; text-align: center; color: white; }
+        .team-header h1 { font-size: 38px; font-weight: 800; margin-bottom: 15px; }
+        .team-header p { opacity: 0.9; max-width: 700px; margin: 0 auto; font-size: 18px; }
+
+        /* الحاوية الرئيسية */
+        .main-container { max-width: 1300px; margin: -60px auto 40px; padding: 0 20px; position: relative; }
+
+        /* العناوين */
+        .section-title { text-align: center; margin: 60px 0 40px; color: var(--primary); font-weight: 800; font-size: 35px; position: relative; }
+
+        .team-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-bottom: 40px;
+        }
+
+        /* الكارت الموحد */
+        .member-card { background: var(--white); border-radius: 20px; padding: 40px 25px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.4s ease; border-bottom: 4px solid transparent; height: 100%; }
+        .member-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent); box-shadow: 0 15px 35px rgba(30, 64, 175, 0.1); }
+
+        .member-img { width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 20px; object-fit: cover; border: 5px solid #f1f5f9; transition: 0.3s; }
+        .member-card:hover .member-img { border-color: var(--accent); }
+
+        .member-name { font-size: 20px; font-weight: 800; color: var(--text-dark); margin-bottom: 5px; }
+        .member-role { color: var(--primary); font-weight: 700; font-size: 15px; margin-bottom: 15px; display: block; }
+        .member-bio { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; min-height: 50px; }
+
+        /* روابط التواصل */
+        .social-links { display: flex; justify-content: center; gap: 15px; }
+        .social-links a { color: #94a3b8; font-size: 18px; transition: 0.3s; }
+        .social-links a:hover { color: var(--primary); transform: scale(1.2); }
+
+        /* فوتر */
+        .footer { text-align: center; padding: 40px; color: var(--text-muted); margin-top: 50px; border-top: 1px solid #e2e8f0; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">PROJEXA</a>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="projects.html">المشاريع</a></li>
+            <li><a href="team.html" style="color: var(--primary)">فريق العمل</a></li>
+        </ul>
+    </nav>
+
+    <div class="team-header">
+        <h1>مبدعو Projexa</h1>
+        <p>نحن فريق من طلاب جامعة بورسعيد، نعمل بشغف لتطوير حلول برمجية مبتكرة تدعم مسيرة البحث والابتكار.</p>
+    </div>
+
+    <div class="main-container">
+        
+        <h2 class="section-title">الإشراف الأكاديمي</h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <img src="dr z.jpeg" alt="أ.د/ محمد زين" class="member-img">
+                <h3 class="member-name">أ.د/ محمد زين</h3>
+                <span class="member-role">المشرف العام</span>
+                <p class="member-bio">خبير في نظم المعلومات وإدارة المشاريع التقنية، يقدم التوجيه الاستراتيجي للفريق.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="dr ziz.jpeg" alt="د/ عبد العزيز ميسره" class="member-img">
+                <h3 class="member-name">د/ عبد العزيز ميسره</h3>
+                <span class="member-role">مشرف تنفيذي</span>
+                <p class="member-bio">متخصص في تقنيات الويب، يشرف على جودة الأكواد والتنفيذ التقني للمنصة.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 80px;">فريق التطوير</h2>
+        <div class="team-grid">
+            
+            <div class="member-card">
+                <img src="beso2.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">بسمله ابراهيم زيدان</h3>
+                <span class="member-role">طالبه بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="7amo.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">محمد تامر غريب </h3>
+                <span class="member-role">طالب بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا التعليم</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="kam.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">محمد كمال احمد </h3>
+                <span class="member-role">طالب بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا المعلومات</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="gaf.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">محمود جعفر ثابت </h3>
+                <span class="member-role">طالب بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا التصميم</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            
+
+            <div class="member-card">
+                <img src="ra7.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">رحمه السيد سعد الدين</h3>
+                <span class="member-role">طالبه بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا المعلومات</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="bg.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">بسمه جمال الدين عبد العزيز</h3>
+                <span class="member-role">طالبه بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا المعلومات</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="aa.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">احمد محمد عرفه</h3>
+                <span class="member-role">طالب بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا المعلومات</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="bs.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">بسنت ابو عمره محمد خضر</h3>
+                <span class="member-role">طالبه بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا المعلومات</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="member-card">
+                <img src="kk.jpeg" alt="Member" class="member-img">
+                <h3 class="member-name">كريم ايمن عوض</h3>
+                <span class="member-role">طالب بكليه تربيه نوعيه </span>
+                <p class="member-bio">قسم تكنولوجيا المعلومات</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Projexa - صنع بشغف بواسطة طلاب جامعة بورسعيد</p>
+    </footer>
+
+    <script src="chat.js"></script>
+    <script src="main.js"></script>
+    <script>
+function checkLoginStatus() {
+    // 1. هنجيب بياناتك من الذاكرة
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const role = localStorage.getItem('role');
+
+    // 2. هندور على المكان اللي فيه أزرار "الدخول" و "التسجيل" (الناف بار)
+    // تأكد إنك حاطط id="authArea" في المكان ده في كل الصفحات
+    const authArea = document.getElementById('authArea') || document.getElementById('authSection') || document.querySelector('.nav-left');
+
+    if (isLoggedIn === 'true' && userName) {
+        // 3. لو مسجل، هنمسح "دخول الطلاب" ونحط اسمك وزرار خروج
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span class="user-name-txt">مرحباً، ${userName}</span>
+                ${role === 'admin' ? '<a href="admin.html" class="btn-main" style="background:#0f172a; color:white; padding:5px; border-radius:5px; text-decoration:none; font-size:12px;">لوحة التحكم</a>' : ''}
+                <button onclick="logoutNow()" class="logout-btn-nav">خروج</button>
+            </div>
+        `;
+    }
+}
+
+function logoutNow() {
+    if (confirm("هل تريد تسجيل الخروج؟")) {
+        localStorage.clear(); // بيمسح الذاكرة نهائياً
+        window.location.href = "index.html"; // بيرجعك للرئيسية وأنت ممسوح
+    }
+}
+
+// تشغيل الفحص فوراً أول ما الصفحة تفتح
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+</script>
+</body>
+</html>

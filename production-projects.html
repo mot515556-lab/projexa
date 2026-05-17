@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريع الإنتاج | PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --white: #ffffff;
+            --text-dark: #0f172a;
+            --bg-soft: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--bg-soft); color: var(--text-dark); font-size: 20px; }
+
+        /* نيف بار ثابت واحترافي */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .logo { font-size: 32px; font-weight: 900; color: var(--text-dark); text-decoration: none; }
+        .logo span { color: var(--primary); }
+
+        /* الهيدر باستخدام الصورة hero.jpg */
+        .header-section {
+            position: relative;
+            height: 550px;
+            width: 100%;
+            background-image: url('hero.jpg'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.45); 
+            z-index: 1;
+        }
+
+        .header-content { position: relative; z-index: 2; }
+        .header-content h1 { font-size: 4.8rem; font-weight: 900; text-shadow: 3px 3px 15px rgba(0,0,0,0.6); }
+        .header-content p { font-size: 2rem; font-weight: 600; margin-top: 15px; }
+
+        /* شبكة المشاريع */
+        .projects-grid {
+            max-width: 1300px;
+            margin: -80px auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* كارت المشروع - يوجه لصفحة projectview.html */
+        .project-card {
+            background: var(--white);
+            border-radius: 35px;
+            padding: 55px 45px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-18px);
+            border-color: var(--primary);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.18);
+        }
+
+        .card-icon {
+            width: 90px; height: 90px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-radius: 22px;
+            margin-bottom: 30px;
+        }
+
+        .project-card h3 { font-size: 2.4rem; font-weight: 900; margin-bottom: 20px; line-height: 1.2; }
+        .project-card p { font-size: 1.4rem; line-height: 1.8; color: #475569; flex-grow: 1; }
+
+        .btn-action {
+            margin-top: 35px;
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 { font-size: 2.8rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">PRO<span>JEXA</span></a>
+
+        <div style="font-weight: 700; font-size: 1.3rem;">قسم هندسة الإنتاج</div>
+    </nav>
+
+    <header class="header-section">
+        <div class="header-content">
+            <h1>معرض المشاريع</h1>
+            <p>ابتكارات طلاب جامعة بورسعيد</p>
+        </div>
+    </header>
+
+    <main class="projects-grid">
+ <div class="project-card">
+    <div class="card-icon"><i class="fas fa-hammer"></i></div>
+    <h3>التشكيل المعدني</h3>
+    <p>دراسة تكنولوجيا تشكيل المعادن وتحسين الخواص الميكانيكية للمنتجات.</p>
+    <a href="projectview.html?id=metal_forming" class="btn-action">عرض التفاصيل <i class="fas fa-chevron-left"></i></a>
+</div>
+
+<div class="project-card">
+    <div class="card-icon"><i class="fas fa-cogs"></i></div>
+    <h3>تكنولوجيا الإنتاج</h3>
+    <p>تحسين خطوط الإنتاج باستخدام أنظمة التحكم الرقمي CNC.</p>
+     <a href="projectview.html?id=production_tech" class="btn-action">عرض التفاصيل <i class="fas fa-chevron-left"></i></a>
+    </a>
+</div>
+<script>
+function checkLoginStatus() {
+    // 1. هنجيب بياناتك من الذاكرة
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const role = localStorage.getItem('role');
+
+    // 2. هندور على المكان اللي فيه أزرار "الدخول" و "التسجيل" (الناف بار)
+    // تأكد إنك حاطط id="authArea" في المكان ده في كل الصفحات
+    const authArea = document.getElementById('authArea') || document.getElementById('authSection') || document.querySelector('.nav-left');
+
+    if (isLoggedIn === 'true' && userName) {
+        // 3. لو مسجل، هنمسح "دخول الطلاب" ونحط اسمك وزرار خروج
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span class="user-name-txt">مرحباً، ${userName}</span>
+                ${role === 'admin' ? '<a href="admin.html" class="btn-main" style="background:#0f172a; color:white; padding:5px; border-radius:5px; text-decoration:none; font-size:12px;">لوحة التحكم</a>' : ''}
+                <button onclick="logoutNow()" class="logout-btn-nav">خروج</button>
+            </div>
+        `;
+    }
+}
+
+function logoutNow() {
+    if (confirm("هل تريد تسجيل الخروج؟")) {
+        localStorage.clear(); // بيمسح الذاكرة نهائياً
+        window.location.href = "index.html"; // بيرجعك للرئيسية وأنت ممسوح
+    }
+}
+
+// تشغيل الفحص فوراً أول ما الصفحة تفتح
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+</script>
+</body>
+</html>

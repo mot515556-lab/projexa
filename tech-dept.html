@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projexa | قسم تكنولوجيا التعليم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --dark-bg: #020617;
+            --card-bg: #0f172a;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* الناف بار السينمائي الداكن */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 900; color: var(--text-light); text-decoration: none; }
+        .nav-brand span { color: var(--primary); }
+        .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+        .nav-links li a { text-decoration: none; color: var(--text-muted); font-weight: bold; transition: 0.2s; }
+        .nav-links li a:hover { color: var(--primary); }
+
+        .container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+
+        /* الهيدر */
+        .dept-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .dept-header h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; color: var(--text-light); }
+        .dept-header p { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* صندوق البحث السريع */
+        .search-box-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+        .search-box-container input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 50px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--card-bg);
+            color: white;
+            font-family: 'Cairo';
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-box-container input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+        .search-box-container i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 18px; }
+
+        /* جريد الكروت */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* كارت المشروع نيون ستايل */
+        .tech-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tech-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+        }
+
+        .card-body { padding: 30px; }
+        .card-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; color: var(--text-light); }
+        .card-desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 0; }
+
+        .card-footer {
+            padding: 20px 30px;
+            background: rgba(2, 6, 23, 0.4);
+            border-top: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .student-count { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        
+        .btn-open {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .btn-open:hover { background: #2563eb; transform: translateX(-3px); }
+
+        .user-nav-box { display: flex; align-items: center; gap: 10px; }
+        .logout-btn { background: #ef4444; color: white; border: none; padding: 4px 10px; border-radius: 5px; cursor: pointer; font-family: 'Cairo'; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">PRO<span>JEXA</span></a>
+    <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="faculty-specific.html">الكلية</a></li>
+    </ul>
+    <div class="nav-left" id="authArea"></div>
+</nav>
+
+<div class="container">
+    <header class="dept-header">
+        <h1>قسم تكنولوجيا التعليم</h1>
+        <p>مشاريع تخرج الحوسبة التعليمية، أنظمة التعلم الذكي، وإنترنت الأشياء</p>
+    </header>
+
+    <div class="search-box-container">
+        <input type="text" id="techSearchInput" onkeyup="searchTechProjects()" placeholder="ابحث عن مشروع أو فكرة داخل القسم...">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <div class="tech-grid" id="techGridContainer">
+        </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. فحص الجلسة المستمرة للمستخدم
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const authArea = document.getElementById('authArea');
+
+    if (isLoggedIn === 'true' && userName) {
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span style="font-weight:bold; color:var(--primary); font-size:14px;">مرحباً، ${userName}</span>
+                <button onclick="localStorage.clear(); window.location.href='index.html';" class="logout-btn">خروج</button>
+            </div>
+        `;
+    }
+
+    // 2. تحميل وعرض المشاريع
+    loadTechProjects();
+});
+
+function loadTechProjects() {
+    const container = document.getElementById('techGridContainer');
+    
+    // مصفوفة المشاريع المحلية الخاصة بالقسم (والمربوطة بصفحة projectview.html عن طريق الـ id)
+    const techProjects = [
+        {
+            id: "smart_map", // الـ ID المطابق تماماً للي في صفحة الفيو
+            title: "مشروع الخريطة الذكية لخدمة الحرم الجامعي (Smart Map)",
+            badge: "إنترنت الأشياء والبرمجيات",
+            summary: "نظام ملاحة داخلي متكامل للحرم الجامعي يربط الأردوينو نانو بتطبيق أندرويد لتوجيه الزوار عبر إضاءة نيون تفاعلية جدارية لحظية.",
+            leader: "عبد الله حماد وزملاؤه"
+        },
+        {
+            id: "allemni_app",
+            title: "تطبيق (علمني) لدارسي محو الأمية وتعليم الكبار",
+            badge: "التعليم الرقمي",
+            summary: "تطبيق أندرويد ذكي وتفاعلي يسمى (علمني) مخصص لتعليم القراءة والكتابة والحساب للكبار ومحو الأمية.",
+            leader: "سهيلة محمد عبد المنعم وزملاؤه"
+        }
+    ];
+
+    
+
+    container.innerHTML = "";
+    techProjects.forEach(p => {
+        container.innerHTML += `
+            <div class="tech-card">
+                <div class="card-body">
+                    <span class="card-badge"><i class="fas fa-microchip"></i> ${p.badge}</span>
+                    <h3 class="card-title">${p.title}</h3>
+                    <p class="card-desc">${p.summary}</p>
+                </div>
+                <div class="card-footer">
+                    <span class="student-count"><i class="fas fa-graduation-cap"></i> ${p.leader}</span>
+                    <a href="projectview.html?id=${p.id}" class="btn-open">عرض التفاصيل <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// دالة الفلترة والبحث اللحظي
+function searchTechProjects() {
+    const input = document.getElementById('techSearchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.tech-card');
+
+    cards.forEach(card => {
+        const title = card.querySelector('.card-title').innerText.toLowerCase();
+        const desc = card.querySelector('.card-desc').innerText.toLowerCase();
+        
+        if(title.includes(input) || desc.includes(input)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

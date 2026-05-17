@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projexa | كلية التربية النوعية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Urbanist:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* نظام الألوان "المبهر والجاذب للعين" - Cyber Luxury & Neon Arts */
+        :root { 
+            --bg-deep-dark: #020617; 
+            --bg-gradient: linear-gradient(135deg, #020617 0%, #0b1329 50%, #1e112a 100%);
+            --card-glass: rgba(15, 23, 42, 0.75);
+            --industrial-border: rgba(255, 255, 255, 0.06);
+            --text-glow: 0 0 15px rgba(255, 255, 255, 0.2);
+            --text-light: #f8fafc; 
+            --text-muted: #94a3b8;
+            
+            /* ألوان النيون التي تشد العين */
+            --neon-blue: #3b82f6;
+            --neon-purple: #a855f7;
+            --neon-pink: #ec4899;
+            --neon-magenta: #d946ef;
+            --neon-green: #10b981;
+        }
+
+        /* التنسيق العام والسينمائي لصفحة الكلية */
+        body {
+            background-color: var(--bg-deep-dark);
+            background-image: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-light);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* شبكة الخلفية الفنية الرقمية Cyber Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(168, 85, 247, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.015) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* هيدر سينمائي مبهر وخاطف للأنظار */
+        .faculty-hero {
+            background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.12) 0%, transparent 60%), 
+                        rgba(2, 6, 23, 0.5);
+            color: white;
+            padding: 100px 5% 80px 5%;
+            text-align: center;
+            border-bottom: 2px solid var(--industrial-border);
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .faculty-hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 16px; 
+            font-weight: 900; 
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 30%, var(--neon-magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--text-glow); 
+        }
+        
+        .faculty-hero p { 
+            font-size: 1.25rem; 
+            color: var(--text-muted); 
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 60px 5%; }
+        
+        .section-title { 
+            font-size: 2rem; 
+            color: var(--text-light); 
+            margin-bottom: 40px; 
+            border-right: 5px solid var(--neon-purple); 
+            padding-right: 18px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+        
+        /* ---------------------------------------------------------------- */
+        /* ستايل كروت الأقسام الفاخر والمبهر (Cyber Neon Floating Theme) */
+        /* ---------------------------------------------------------------- */
+        .departments-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            margin-bottom: 80px; 
+        }
+
+        .dept-card { 
+            background: var(--card-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px 30px; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+            border: 2px solid var(--industrial-border); 
+            text-align: center; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            cursor: pointer; 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* توهج علوي خفيف لكل كارت */
+        .dept-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; transition: 0.4s ease;
+        }
+
+        .dept-card i { 
+            font-size: 3.5rem; 
+            margin-bottom: 25px; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: inline-block;
+        }
+
+        .dept-card h3 { 
+            font-size: 1.5rem; 
+            color: var(--text-light); 
+            margin-bottom: 14px; 
+            font-weight: 700; 
+            transition: 0.3s;
+        }
+
+        .dept-card p { 
+            font-size: 14px !important; 
+            color: var(--text-muted) !important; 
+            line-height: 1.7;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        /* تأثيرات الإضاءة النيون الساحرة لكل كارت عند الـ Hover لشد الانتباه */
+        
+        /* تكنولوجيا التعليم */
+        .dept-card.tech-card-item i { color: var(--neon-blue); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3)); }
+        .dept-card.tech-card-item:hover { 
+            transform: translateY(-12px) scale(1.02); 
+            border-color: var(--neon-blue); 
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.25); 
+        }
+        .dept-card.tech-card-item:hover::before { width: 100%; background: var(--neon-blue); box-shadow: 0 0 15px var(--neon-blue); }
+        .dept-card.tech-card-item:hover h3 { color: var(--neon-blue); text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+
+        /* التربية الفنية */
+        .dept-card.art-card-item i { color: var(--neon-purple); filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3)); }
+        .dept-card.art-card-item:hover { 
+            transform: translateY(-12px) scale(1.02); 
+            border-color: var(--neon-purple); 
+            box-shadow: 0 25px 50px rgba(168, 85, 247, 0.25); 
+        }
+        .dept-card.art-card-item:hover::before { width: 100%; background: var(--neon-purple); box-shadow: 0 0 15px var(--neon-purple); }
+        .dept-card.art-card-item:hover h3 { color: var(--neon-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+
+        /* التربية الموسيقية */
+        .dept-card.music-card-item i { color: var(--neon-pink); filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3)); }
+        .dept-card.music-card-item:hover { 
+            transform: translateY(-12px) scale(1.02); 
+            border-color: var(--neon-pink); 
+            box-shadow: 0 25px 50px rgba(236, 72, 153, 0.25); 
+        }
+        .dept-card.music-card-item:hover::before { width: 100%; background: var(--neon-pink); box-shadow: 0 0 15px var(--neon-pink); }
+        .dept-card.music-card-item:hover h3 { color: var(--neon-pink); text-shadow: 0 0 10px rgba(236, 72, 153, 0.4); }
+
+        /* الاقتصاد المنزلي */
+        .dept-card.home-card-item i { color: var(--neon-green); filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3)); }
+        .dept-card.home-card-item:hover { 
+            transform: translateY(-12px) scale(1.02); 
+            border-color: var(--neon-green); 
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.25); 
+        }
+        .dept-card.home-card-item:hover::before { width: 100%; background: var(--neon-green); box-shadow: 0 0 15px var(--neon-green); }
+        .dept-card.home-card-item:hover h3 { color: var(--neon-green); text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+
+        /* الإعلام التربوي */
+        .dept-card.media-card-item i { color: var(--neon-magenta); filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.3)); }
+        .dept-card.media-card-item:hover { 
+            transform: translateY(-12px) scale(1.02); 
+            border-color: var(--neon-magenta); 
+            box-shadow: 0 25px 50px rgba(217, 70, 239, 0.25); 
+        }
+        .dept-card.media-card-item:hover::before { width: 100%; background: var(--neon-magenta); box-shadow: 0 0 15px var(--neon-magenta); }
+        .dept-card.media-card-item:hover h3 { color: var(--neon-magenta); text-shadow: 0 0 10px rgba(217, 70, 239, 0.4); }
+
+        .dept-card:hover i {
+            transform: scale(1.15) rotate(6deg);
+        }
+        /* ---------------------------------------------------------------- */
+
+        /* ستايل قائمة الفيو للمشاريع المعتمدة الغامق والمضيء */
+        .projects-list { 
+            background: var(--card-glass); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px; 
+            border-radius: 28px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+            border: 2px solid var(--industrial-border);
+        }
+        
+        .project-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 24px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            transition: all 0.3s ease;
+        }
+        .project-item:last-child { border-bottom: none; }
+        .project-item:hover { transform: translateX(-5px); }
+        
+        .p-info h4 { font-size: 1.4rem; color: var(--text-light); margin: 0 0 12px 0; font-weight: 700; transition: 0.3s; }
+        .project-item:hover .p-info h4 { color: var(--neon-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
+        
+        .p-info span { 
+            font-size: 0.85rem; 
+            color: white; 
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); 
+            padding: 5px 14px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-view { 
+            background: #0f172a; 
+            color: white !important; 
+            padding: 12px 24px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: bold; 
+            transition: all 0.3s ease;
+            border: 1px solid var(--industrial-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-view:hover { 
+            background: var(--neon-purple); 
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); 
+            border-color: var(--neon-purple);
+            transform: scale(1.05);
+        }
+
+        /* ستايل الناف بار الثابت الشيك المتناسق */
+        .navbar { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; 
+            background: rgba(2, 6, 23, 0.8); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3); 
+            position: sticky; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--industrial-border);
+        }
+        .nav-right, .nav-left { display: flex; align-items: center; gap: 20px; }
+        .header-logo { height: 45px; width: auto; filter: drop-shadow(0 0 5px rgba(255,255,255,0.1)); }
+        .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+        .nav-links li a { text-decoration: none; color: var(--text-muted); font-weight: bold; transition: 0.2s; font-size: 15px; }
+        .nav-links li a:hover { color: var(--neon-purple); text-shadow: 0 0 8px rgba(168, 85, 247, 0.3); }
+        
+        .btn-blue { 
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); 
+            color: white !important; 
+            padding: 10px 20px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: 0.3s;
+        }
+        .btn-blue:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-right">
+        <img src="uni.jpg" alt="جامعة بورسعيد" class="header-logo">
+        <img src="college.jpg" alt="كلية التربية النوعية" class="header-logo">
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="projects.html">المشاريع</a></li>
+        <li><a href="team.html">فريق العمل</a></li>
+        <li id="uploadItem"><a href="upload.html" class="btn-blue">رفع مشروع <i class="fas fa-plus-circle"></i></a></li>
+    </ul>
+    <div class="nav-left" id="authArea">
+        <a href="login.html" style="text-decoration:none; color:var(--text-muted); font-size:14px; margin-left:10px;">الإدارة</a>
+        <a href="register.html" class="btn-blue">دخول الطلاب</a>
+    </div>
+</nav>
+
+<header class="faculty-hero">
+    <h1>كلية التربية النوعية</h1>
+    <p>جامعة بورسعيد | منصة تفاعلية لاستعراض مشاريع التخرج والأبحاث المعتمدة برؤية بصرية وإبداعية متكاملة</p>
+</header>
+
+<div class="container">
+    <h2 class="section-title">الأقسام العلمية بالكلية</h2>
+    <div class="departments-grid">
+        <div class="dept-card tech-card-item" onclick="window.location.href='tech-dept.html'">
+            <i class="fas fa-laptop-code"></i>
+            <h3>تكنولوجيا التعليم</h3>
+            <p>المنصات الذكية، البرمجيات التعليمية، وتطبيقات الواقع الافتراضي والمعزز.</p>
+        </div>
+
+        <div class="dept-card art-card-item" onclick="filterByDept('قسم التربية الفنية')">
+            <i class="fas fa-palette"></i>
+            <h3>التربية الفنية</h3>
+            <p>معارض التصميم الرقمي، الفنون التشكيلية، النحت، وإعادة تدوير الخامات البيئية.</p>
+        </div>
+
+        <div class="dept-card music-card-item" onclick="window.location.href='home-music-dept.html'">
+            <i class="fas fa-music"></i>
+            <h3>التربية الموسيقية</h3>
+            <p>الأبحاث والمؤلفات الموسيقية، التوثيق الفني، والتقنيات الصوتية المتقدمة.</p>
+        </div>
+
+        <div class="dept-card home-card-item" onclick="window.location.href='home-eco-dept.html'">
+            <i class="fas fa-blender"></i>
+            <h3>الاقتصاد المنزلي</h3>
+            <p>مشاريع خطوط الأزياء والموضة، تكنولوجيا التغذية، وإدارة المؤسسات الأسرية.</p>
+        </div>
+
+        <div class="dept-card media-card-item" onclick="window.location.href='home-media-dept.html'">
+            <i class="fas fa-photo-video"></i>
+            <h3>الإعلام التربوي</h3>
+            <p>مشاريع الإذاعة والتلفزيون التعليمي، الصحافة المدرسية، وفنون المسرح التربوي المتميز.</p>
+        </div>
+    </div>
+
+    <div class="projects-list-wrapper">
+        <h2 class="section-title" id="projectsListHeader">المشاريع المعتمدة الحالية</h2>
+        <div class="projects-list" id="facultyProjectsContainer">
+            </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. إدارة جلسة المستخدم في الناف بار
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const authArea = document.getElementById('authArea');
+    const uploadItem = document.getElementById('uploadItem');
+
+    if (isLoggedIn === 'true' && userName) {
+        authArea.innerHTML = `
+            <div style="display:flex; align-items:center; gap:12px;">
+                <span style="font-weight:bold; color:var(--neon-blue); font-size:14px; text-shadow:0 0 10px rgba(59,130,246,0.2)">مرحباً، ${userName}</span>
+                <button onclick="localStorage.clear(); window.location.href='index.html';" style="background:#ef4444; color:white; border:none; padding:6px 14px; border-radius:8px; cursor:pointer; font-family:'Cairo'; font-size:12px; font-weight:bold; box-shadow:0 4px 12px rgba(239,68,68,0.2);">خروج</button>
+            </div>
+        `;
+        if(uploadItem) uploadItem.style.display = 'block';
+    }
+
+    // 2. تحميل وعرض البيانات الافتراضية والفلترة
+    displayFacultyProjects();
+});
+
+function displayFacultyProjects() {
+    const container = document.getElementById('facultyProjectsContainer');
+    let allProjects = JSON.parse(localStorage.getItem('myProjects')) || [];
+    
+    // إذا كانت الذاكرة فارغة، ننشئ مشاريع دمي قوية جاهزة للعرض الفوري
+    if (allProjects.length === 0) {
+        allProjects = [
+            { id: 1, title: "منصة تعليمية قائمة على الواقع المعزز (AR)", faculty: "كلية التربية النوعية", team: "قسم تكنولوجيا التعليم", summary: "مشروع يهدف لتطوير برمجيات تعليمية للمدارس باستخدام تقنيات الواقع المعزز." },
+            { id: 2, title: "إعادة تدوير المخلفات البيئية في النحت المعاصر", faculty: "كلية التربية النوعية", team: "قسم التربية الفنية", summary: "مشروع فني تطبيقي لاستغلال خامات البيئة في إنتاج مجسمات جمالية." },
+            { id: 3, title: "ألبومات تفاعلية لتعليم عزف البيانو للأطفال", faculty: "كلية التربية النوعية", team: "قسم التربية الموسيقية", summary: "منصة رقمية تحتوي على نوتات موسيقية تفاعلية لتسهيل التعلم الذاتي." },
+            { id: 4, title: "خط إنتاج ملابس أطفال مستوحاة من التراث البورسعيدي", faculty: "كلية التربية النوعية", team: "قسم الاقتصاد المنزلي", summary: "تصميم وتنفيذ أزياء تدمج بين حداثة التصميم والهوية التراثية للمحافظة." }
+        ];
+        localStorage.setItem('myProjects', JSON.stringify(allProjects));
+    }
+    
+    const facultyProjects = allProjects.filter(p => p.faculty === 'تربية نوعية' || p.faculty === 'كلية التربية النوعية');
+
+    if(facultyProjects.length === 0) {
+        container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding:30px; font-weight:bold;">لا توجد مشاريع مرفوعة حالياً في هذه الكلية.</p>`;
+        return;
+    }
+
+    container.innerHTML = "";
+    facultyProjects.forEach(p => {
+        container.innerHTML += `
+            <div class="project-item" data-dept="${p.team}">
+                <div class="p-info">
+                    <h4>${p.title}</h4>
+                    <span>${p.team}</span>
+                </div>
+                <a href="#" class="btn-view" onclick="viewProjectDetails('${p.title}', '${p.team}', '${p.summary}')">استعراض المشروع <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        `;
+    });
+}
+
+// دالة الفلترة الذكية بدون عمل ريلود للصفحة
+function filterByDept(deptName) {
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => {
+        const projectDept = item.getAttribute('data-dept');
+        if (projectDept === deptName) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    // إضافة زرار عرض الكل لإعادة تهيئة الفيو
+    let clearBtn = document.getElementById('clearFilterBtn');
+    if (!clearBtn) {
+        const header = document.getElementById('projectsListHeader');
+        header.innerHTML += ` <button id="clearFilterBtn" onclick="resetFilter()" style="background:var(--neon-purple); color:white; border:none; padding:6px 14px; margin-right:15px; border-radius:8px; font-size:13px; font-weight:bold; cursor:pointer; font-family:'Cairo'; box-shadow:0 0 15px rgba(168,85,247,0.4);">عرض الكل</button>`;
+    }
+}
+
+function resetFilter() {
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => { item.style.display = 'flex'; });
+    const clearBtn = document.getElementById('clearFilterBtn');
+    if (clearBtn) clearBtn.remove();
+}
+
+function viewProjectDetails(title, dept, summary) {
+    alert(`📘 اسم المشروع: ${title}\n\n🎓 القسم: ${dept}\n\n📝 نبذة عن المشروع: ${summary || 'لا يوجد ملخص متاح لهذا المشروع.'}`);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+    fetchFacultySpecificProjects();
+});
+
+let allFacultyProjects = []; // مصفوفة لحفظ المشاريع للفلترة الفورية
+
+function fetchFacultySpecificProjects() {
+    fetch('api.php?action=get_projects&faculty=كلية التربية النوعية')
+    .then(response => response.json())
+    .then(projects => {
+        allFacultyProjects = projects;
+        renderProjectsList(projects);
+    })
+    .catch(err => console.error("خطأ:", err));
+}
+
+function renderProjectsList(projects) {
+    const listContainer = document.getElementById('projectsContainer') || document.querySelector('.projects-list');
+    listContainer.innerHTML = '';
+
+    if(projects.length === 0) {
+        listContainer.innerHTML = '<p style="color:white; text-align:center;">لا توجد مشاريع حالياً.</p>';
+        return;
+    }
+
+    projects.forEach(p => {
+        // هنا الكود بيقرأ اسم القسم القادم من الداتا بيز تلقائياً للفلترة
+        listContainer.innerHTML += `
+            <div class="project-item" data-dept="${p.department_name}">
+                <div class="project-info">
+                    <span class="dept-tag">${p.department_name || 'تربية نوعية'}</span>
+                    <h3>${p.title}</h3>
+                    <p>${p.description.substring(0, 140)}...</p>
+                </div>
+                <a href="projectview.html?id=${p.project_slug}" class="btn-explore">استعراض المشروع <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        `;
+    });
+}
+
+// دالة الفلترة المعدلة لتقرأ من الداتا بيز الحية
+function filterByDept(deptName) {
+    const filtered = allFacultyProjects.filter(p => p.department_name === deptName);
+    renderProjectsList(filtered);
+
+    let clearBtn = document.getElementById('clearFilterBtn');
+    if (!clearBtn) {
+        const header = document.getElementById('projectsListHeader');
+        header.innerHTML += ` <button id="clearFilterBtn" onclick="resetFilter()" style="background:#64748b; color:white; border:none; padding:4px 12px; border-radius:6px; cursor:pointer; font-family:'Cairo';">عرض الكل</button>`;
+    }
+}
+
+function resetFilter() {
+    renderProjectsList(allFacultyProjects);
+    const clearBtn = document.getElementById('clearFilterBtn');
+    if (clearBtn) clearBtn.remove();
+}
+</script>
+
+</body>
+</html>

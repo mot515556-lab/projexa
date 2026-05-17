@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريع كلية الحاسبات والمعلومات | PROJEXA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4338ca; /* لون نيلي تكنولوجي فخم خاص بكلية الحاسبات */
+            --secondary: #1e293b;
+            --accent: #facc15;
+            --white: #ffffff;
+            --gray: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: #f1f5f9; color: var(--secondary); line-height: 1.6; }
+
+        /* هيدر كلية حاسبات والمعلومات */
+        .hero-section {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('computers_college_bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 { font-size: 3.2rem; font-weight: 900; margin-bottom: 15px; }
+        .hero-content p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        /* شبكة عرض الكروت بجانب بعضها */
+        .container { 
+            max-width: 1100px; 
+            margin: -60px auto 60px; 
+            padding: 0 20px; 
+            position: relative; 
+            z-index: 10; 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* كارت المشروع */
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+
+        .card-accent { height: 8px; background: var(--primary); }
+
+        .card-body { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(67, 56, 202, 0.1);
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .card-body h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--secondary); font-weight: 900; line-height: 1.4; }
+        .card-body p { color: var(--gray); font-size: 1.01rem; margin-bottom: 25px; line-height: 1.7; }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 25px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: auto;
+        }
+
+        .card-meta span i { margin-left: 6px; color: var(--primary); }
+
+        .btn-view {
+            color: var(--primary);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* زر العودة لكليات الجامعة */
+        .nav-back { position: absolute; top: 30px; right: 40px; z-index: 100; }
+        .back-link {
+            color: white; text-decoration: none; font-weight: 700;
+            padding: 10px 25px; border-radius: 50px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: 0.3s;
+        }
+        .back-link:hover { background: white; color: var(--secondary); }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .container { margin-top: 20px; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-back">
+        <a href="index.html" class="back-link"><i class="fas fa-chevron-right"></i> العودة للكليات</a>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>كلية الحاسبات والمعلومات</h1>
+            <p>منصة استعراض حلول هندسة البرمجيات، النظم الذكية، والأمن السيبراني لشباب الخريجين</p>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <a href="projectview.html?id=cif_eye_ai" class="project-card">
+            <div class="card-accent" style="background: #4338ca;"></div>
+            <div class="card-body">
+                <div>
+                    <span class="badge">ذكاء اصطناعي ومعالجة صور</span>
+                    <h3>منصة التشخيص الذكي لأمراض شبكية العين</h3>
+                    <p>منظومة برمجية خبيرة تعتمد على الشبكات العصبية العميقة لتحليل صور قاع العين ومسوح القرنية، واكتشاف مرض المياه الزرقاء والسكري بدقة طبية فائقة.</p>
+                </div>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar-alt"></i> دفعة 2025</span>
+                    <div class="btn-view">التفاصيل والعرض <i class="fas fa-long-arrow-alt-left"></i></div>
+                </div>
+            </div>
+        </a>
+<a href="projectview.html?id=cce_smart_grid" class="project-card">
+    <div class="card-accent" style="background: #4f46e5;"></div>
+    <div class="card-body">
+        <div>
+            <span class="badge">إنترنت أشياء وذكاء اصطناعي</span>
+            <h3>إدارة الطاقة في الشبكات الذكية (Smart Grid)</h3>
+            <p>تطوير نظام يعتمد على تعلم الآلة للتنبؤ باستهلاك الطاقة الكهربائية في المنشآت الحيوية وإعادة توزيع الأحمال تلقائياً لمنع الانقطاع.</p>
+        </div>
+        <div class="card-meta">
+            <span><i class="far fa-calendar-alt"></i> دفعة 2026</span>
+            <div class="btn-view">التفاصيل <i class="fas fa-long-arrow-alt-left"></i></div>
+        </div>
+    </div>
+</a>
+
+<a href="projectview.html?id=cce_autonomous_car" class="project-card">
+    <div class="card-accent" style="background: #4f46e5;"></div>
+    <div class="card-body">
+        <div>
+            <span class="badge">أنظمة روبوتية مدمجة</span>
+            <h3>نظام التوجيه والقيادة الذاتية للمركبات الذكية</h3>
+            <p>بناء نموذج مصغر لسيارة ذاتية القيادة قادرة على قراءة حارات الطريق، وتجنب العقبات، وفهم إشارات المرور آلياً دون تدخل بشري.</p>
+        </div>
+        <div class="card-meta">
+            <span><i class="far fa-calendar-alt"></i> دفعة 2026</span>
+            <div class="btn-view">التفاصيل <i class="fas fa-long-arrow-alt-left"></i></div>
+        </div>
+    </div>
+</a>
+        <a href="projectview.html?id=cif_proctoring_system" class="project-card">
+            <div class="card-accent" style="background: #0284c7;"></div>
+            <div class="card-body">
+                <div>
+                    <span class="badge" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;">أمن معلومات ورؤية حاسوبية</span>
+                    <h3>نظام المراقبة الذكي للاختبارات الإلكترونية (AI Proctoring)</h3>
+                    <p>برنامج يعتمد على كاميرا الويب لتتبع حركة عين الطالب، ورصد فتح متصفحات جانبية أو دخول شخص آخر للغرفة، لضمان نزاهة الامتحانات أونلاين بدون مراقب بشري.</p>
+                </div>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar-alt"></i> دفعة 2025</span>
+                    <div class="btn-view" style="color: #0284c7;">التفاصيل والعرض <i class="fas fa-long-arrow-alt-left"></i></div>
+                </div>
+            </div>
+        </a>
+
+        <a href="projectview.html?id=cif_blind_assistant" class="project-card">
+            <div class="card-accent" style="background: #0d9488;"></div>
+            <div class="card-body">
+                <div>
+                    <span class="badge" style="background: rgba(13, 148, 136, 0.1); color: #0d9488;">هندسة برمجيات وإنترنت أشياء</span>
+                    <h3>نظام توجيه وقراءة البيئة الذكي للمكفوفين</h3>
+                    <p>تطبيق موبايل مدمج بنظارة ذكية يقرأ النصوص العربية، ويتعرف على الأشخاص والعملات النقدية ويصفها كفيف البصر صوتياً لمساعدته على التنقل بحرية.</p>
+                </div>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar-alt"></i> دفعة 2025</span>
+                    <div class="btn-view" style="color: #0d9488;">التفاصيل والعرض <i class="fas fa-long-arrow-alt-left"></i></div>
+                </div>
+                
+            </div>
+        </a>
+
+    </div>
+
+<script>
+function checkLoginStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+    const role = localStorage.getItem('role');
+    const authArea = document.getElementById('authArea') || document.getElementById('authSection') || document.querySelector('.nav-left');
+
+    if (isLoggedIn === 'true' && userName) {
+        authArea.innerHTML = `
+            <div class="user-nav-box">
+                <span class="user-name-txt">مرحباً، ${userName}</span>
+                ${role === 'admin' ? '<a href="admin.html" class="btn-main" style="background:#0f172a; color:white; padding:5px; border-radius:5px; text-decoration:none; font-size:12px;">لوحة التحكم</a>' : ''}
+                <button onclick="logoutNow()" class="logout-btn-nav">خروج</button>
+            </div>
+        `;
+    }
+}
+
+function logoutNow() {
+    if (confirm("هل تريد تسجيل الخروج؟")) {
+        localStorage.clear();
+        window.location.href = "index.html";
+    }
+}
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus(); // دالتك القديمة كما هي
+    fetchLiveProjects(); // جلب البيانات الحية
+});
+
+function fetchLiveProjects() {
+    // استدعاء الأكشن المخصصة للحاسبات والمعلومات
+    fetch('api.php?action=get_projects&faculty=كلية الحاسبات والمعلومات')
+    .then(response => response.json())
+    .then(projects => {
+        // البحث عن مكان الكروت (الكونتينر اللي فيه الـ Grid)
+        const gridContainer = document.querySelector('.grid-container') || document.querySelector('.projects-grid');
+        gridContainer.innerHTML = ''; // مسح الكروت الثابتة القديمة
+
+        if(projects.length === 0) {
+            gridContainer.innerHTML = '<p style="color:#64748b; text-align:center; grid-column:1/-1; font-family:\'Cairo\'">لا يوجد مشاريع مرفوعة حالياً لهذه الكلية.</p>';
+            return;
+        }
+
+        projects.forEach(p => {
+            gridContainer.innerHTML += `
+                <a href="projectview.html?id=${p.project_slug}" class="card-link" style="text-decoration:none; color:inherit;">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="card-badge"><i class="fas fa-calendar-alt"></i> دفعة ${p.graduation_year}</span>
+                            <h3 class="card-title">${p.title}</h3>
+                            <p class="card-text">${p.description.substring(0, 120)}...</p>
+                        </div>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> ${p.team_members}</span>
+                            <div class="btn-view" style="color: #0d9488;">التفاصيل والعرض <i class="fas fa-long-arrow-alt-left"></i></div>
+                        </div>
+                    </div>
+                </a>
+            `;
+        });
+    })
+    .catch(err => console.error("خطأ في جلب المشاريع:", err));
+}
+</script>
+</body>
+</html>

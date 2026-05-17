@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projexa | قسم التربية الموسيقية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary: #eab308; --dark-bg: #020617; --card-bg: #0f172a; --text-light: #f8fafc; }
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Cairo', sans-serif; margin: 0; padding: 0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-brand { font-size: 24px; font-weight: 900; color: var(--text-light); text-decoration: none; }
+        .nav-brand span { color: var(--primary); }
+        .container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .dept-header { text-align: center; margin-bottom: 50px; }
+        .dept-header h1 { font-size: 2.5rem; font-weight: 900; color: var(--primary); }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .tech-card { background: var(--card-bg); border-radius: 20px; border: 1px solid rgba(255,255,255,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: 0.4s; }
+        .tech-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 35px rgba(234, 179, 8, 0.2); }
+        .card-body { padding: 30px; }
+        .card-badge { background: rgba(234, 179, 8, 0.1); color: var(--primary); padding: 5px 12px; border-radius: 50px; font-size: 12px; font-weight: bold; margin-bottom: 15px; display: inline-block; }
+        .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+        .card-footer { padding: 20px 30px; background: rgba(2, 6, 23, 0.4); display: flex; justify-content: space-between; align-items: center; }
+        .btn-open { background: var(--primary); color: #0f172a !important; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">PRO<span>JEXA</span></a>
+    <div id="authArea"></div>
+</nav>
+<div class="container">
+    <header class="dept-header">
+        <h1>قسم التربية الموسيقية</h1>
+        <p>مشاريع التوزيع الأوركسترالي، الأداء الأوبرالي الجماعي، وإحياء الموشحات والتراث الموسيقي</p>
+    </header>
+    <div class="tech-grid">
+        <div class="tech-card">
+            <div class="card-body">
+                <span class="card-badge"><i class="fas fa-music"></i> أداء وعزف مسرحي حى</span>
+                <h3 class="card-title">مشروع تخرج الأداء الغنائي والصولوهات الجماعية المتميزة</h3>
+                <p style="color:#94a3b8; font-size:14px;">أوبريت موسيقي حي ومجموعة من الصولوهات الغنائية التي تدمج بين الغناء الأوبرالي الكلاسيكي وبين إحياء الموسيقى والآلات الشرقية والغربية بمشاركة طالبات وطلاب القسم.</p>
+            </div>
+            <div class="card-footer">
+                <span style="color:#94a3b8; font-size:13px;"><i class="fas fa-users"></i> طلاب الفرقة الرابعة</span>
+                <a href="projectview.html?id=music_graduation_2023" class="btn-open">عرض التفاصيل <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const userName = localStorage.getItem('userName');
+    if (userName) document.getElementById('authArea').innerHTML = `<span style="color:var(--primary); font-weight:bold;">مرحباً، ${userName}</span>`;
+</script>
+</body>
+</html>
